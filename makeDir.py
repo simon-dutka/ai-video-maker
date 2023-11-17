@@ -13,6 +13,7 @@ for i in range(temp + 1, temp + 6):
 
     new_story_folder = "./stories"
     folder_name = f"story {str(temp).zfill(3)}"
+    folder_name = f"story{str(temp).zfill(4)}"
     path = os.path.join(new_story_folder, folder_name)
     os.makedirs(path)
 
