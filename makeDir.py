@@ -2,6 +2,10 @@ import os
 
 dir_path = './stories'
 
+if len(os.listdir(dir_path)) == 0:
+    path = os.path.join(dir_path, "story0001")
+    os.makedirs(os.path.join(dir_path, "story0001"))
+
 folders_in_dir = [
     folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
 ]
