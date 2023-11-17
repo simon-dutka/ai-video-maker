@@ -1,6 +1,6 @@
 import os
 
-dir_path = './'
+dir_path = './stories'
 
 folders_in_dir = [
     folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
