@@ -1,6 +1,6 @@
 import os
 
-def makeDire():
+def makeDirectory():
     dir_path = './stories'
 
     if len(os.listdir(dir_path)) == 0:
