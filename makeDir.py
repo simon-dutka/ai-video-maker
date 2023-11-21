@@ -4,8 +4,7 @@ def makeDirectory():
     dir_path = './stories'
 
     if len(os.listdir(dir_path)) == 0:
-        path = os.path.join(dir_path, "story0001")
-        os.makedirs(os.path.join(dir_path, "story0001"))
+        os.makedirs(os.path.join(dir_path, "story0001 - empty"))
 
     folders_in_dir = [
         folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
@@ -25,9 +24,6 @@ def makeDirectory():
         
         folder_name = f"story{str(folders_in_dir_last).zfill(4)} - empty"
 
-
-
         path = os.path.join(dir_path, folder_name)
         os.makedirs(path)
-makeDirectory()
 # dir_to_upload_files
