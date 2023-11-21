@@ -1,5 +1,5 @@
 import os
-
+import re
 def makeDirectory():
     dir_path = './stories'
 
@@ -11,25 +11,23 @@ def makeDirectory():
         folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
     ]
 
-    folders_in_dir_last = folders_in_dir[len(folders_in_dir) - 1].replace("story", "")
-    temp = int(folders_in_dir_last)
-
-    dir_to_upload_files = ""
+    folders_in_dir_last = folders_in_dir[len(folders_in_dir) - 1]
+    folders_in_dir_last = int(re.sub('[a-z]', '', folders_in_dir_last).replace(' - ', ''))
+    folders_in_dir_last
+    print(int(folders_in_dir_last))
 
     # Allows get name of first created dir
     num_of_loop = 0
 
-    for i in range(temp + 1, temp + 6):
+    for i in range(folders_in_dir_last, folders_in_dir_last + 6):
         num_of_loop += 1
-        temp = temp + 1
+        folders_in_dir_last = folders_in_dir_last + 1
         
-        folder_name = f"story{str(temp).zfill(4)}"
+        folder_name = f"story{str(folders_in_dir_last).zfill(4)} - empty"
 
-        if num_of_loop == 1:
-            dir_to_upload_files = folder_name = f"story{str(temp).zfill(4)}"
 
 
         path = os.path.join(dir_path, folder_name)
         os.makedirs(path)
-
+makeDirectory()
 # dir_to_upload_files
