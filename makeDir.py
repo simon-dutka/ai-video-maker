@@ -12,8 +12,6 @@ def makeDirectory():
 
     folders_in_dir_last = folders_in_dir[len(folders_in_dir) - 1]
     folders_in_dir_last = int(re.sub('[a-z]', '', folders_in_dir_last).replace(' - ', ''))
-    folders_in_dir_last
-    print(int(folders_in_dir_last))
 
     # Allows get name of first created dir
     num_of_loop = 0
@@ -26,4 +24,3 @@ def makeDirectory():
 
         path = os.path.join(dir_path, folder_name)
         os.makedirs(path)
-# dir_to_upload_files
