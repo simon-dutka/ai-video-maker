@@ -11,7 +11,7 @@ while isExit == False:
     choiceIndex = choices.index(choice)
 
     if choiceIndex == 0:
-        makeDir.makeDirectory()
+        makeDir.make_dir()
     elif choiceIndex == 1:
         makeFiles.make_files()
     elif choiceIndex == 2:
