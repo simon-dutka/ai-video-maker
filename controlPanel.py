@@ -1,7 +1,7 @@
-import makeDir
+import makeDir, makeFiles
 import inquirer
 
-choices = ['Make directory structure', 'Exit']
+choices = ['Make directory structure', 'Make files structure', 'Exit']
 isExit = False
 
 while isExit == False:
@@ -13,4 +13,6 @@ while isExit == False:
     if choiceIndex == 0:
         makeDir.makeDirectory()
     elif choiceIndex == 1:
+        makeFiles.makeFiles()
+    elif choiceIndex == 2:
         isExit = True
