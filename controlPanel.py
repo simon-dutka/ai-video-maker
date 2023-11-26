@@ -13,6 +13,6 @@ while isExit == False:
     if choiceIndex == 0:
         makeDir.makeDirectory()
     elif choiceIndex == 1:
-        makeFiles.makeFiles()
+        makeFiles.make_files()
     elif choiceIndex == 2:
         isExit = True
