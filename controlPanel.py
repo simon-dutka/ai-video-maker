@@ -1,5 +1,5 @@
-import makeDir, makeFiles
 import inquirer
+from modules import makeDir, makeFiles
 
 choices = ['Make directory structure', 'Make files structure', 'Exit']
 isExit = False

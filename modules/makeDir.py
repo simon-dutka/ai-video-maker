@@ -1,5 +1,5 @@
-import os
-import re
+import os, re
+
 def make_dir():
     dir_path = './stories'
 
