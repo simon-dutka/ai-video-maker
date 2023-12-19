@@ -1,7 +1,7 @@
 import inquirer
-from modules import makeDir, makeFiles
+from modules import makeDir, makeFiles, getsId
 
-choices = ['Make directory structure', 'Make files structure', 'Exit']
+choices = ['Make directory structure', 'Make files structure', 'Get posts ID\'s', 'Exit']
 isExit = False
 
 while isExit == False:
@@ -15,4 +15,6 @@ while isExit == False:
     elif choiceIndex == 1:
         makeFiles.make_files()
     elif choiceIndex == 2:
+        getsId.gets_id()
+    elif choiceIndex == 3:
         isExit = True
