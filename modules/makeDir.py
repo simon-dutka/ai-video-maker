@@ -3,7 +3,8 @@ import os, re
 def make_dir():
     dir_path = './stories'
 
-    if len(os.listdir(dir_path)) == 0:
+    # If /story is empty make first dir
+    if not os.listdir(dir_path):
         os.makedirs(os.path.join(dir_path, "story0001 - empty"))
 
     folders_in_dir = [
@@ -20,7 +21,7 @@ def make_dir():
         num_of_loop += 1
         folders_in_dir_last = folders_in_dir_last + 1
         
-        folder_name = f"story{str(folders_in_dir_last).zfill(4)} - empty"
+        folder_name = f"story{folders_in_dir_last:04d} - empty"
 
         path = os.path.join(dir_path, folder_name)
         os.makedirs(path)
