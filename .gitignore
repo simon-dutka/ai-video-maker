@@ -1,5 +1,5 @@
 # Api secret keys
-secret/
+.secret/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
