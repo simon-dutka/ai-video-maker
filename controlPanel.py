@@ -1,5 +1,5 @@
 import inquirer
-from modules import makeDir, makeFiles, getsId
+from modules import makeDir, makeFiles, getsId, getRedditApi
 
 choices = ['Make directory structure', 'Make files structure', 'Get posts ID\'s', 'Exit']
 isExit = False
@@ -13,8 +13,8 @@ while isExit == False:
     if choiceIndex == 0:
         makeDir.make_dir()
     elif choiceIndex == 1:
-        makeFiles.make_files()
+        makeFiles.make_files(getRedditApi.get_reddit_api())
     elif choiceIndex == 2:
-        getsId.gets_id()
+        getsId.gets_id(getRedditApi.get_reddit_api())
     elif choiceIndex == 3:
         isExit = True
