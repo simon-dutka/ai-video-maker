@@ -1,25 +1,32 @@
 # Get last (first of five) created folder
-# print(dir_to_upload_files)
 import os, re
+
 dir_path = './stories'
 
-def make_files():
+def make_files(reddit):
     folders_in_dir = [
             folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
     ]
     
-    # print(os.listdir('./stories'))
-    print(folders_in_dir)
-    # story_file = open("stories/story", "w")
     def create_story_file():
+        # Get Title and selfText by ID's & put into file texts
         for directory in os.listdir('./stories'):
-            # print(directory)
-
+     
             if 'empty' in directory:
-                
-                file_name = int(re.sub('[a-z]', '', directory).replace(' - ', ''))
-                print(file_name)
-                story_file = open(f'stories/{directory}/story{str(file_name).zfill(4)}.txt', "w")
+                with open("data/stories_id.txt", "r+") as stories_id:
+                    first_line = stories_id.readline()
+                    lines = stories_id.readlines()
+                    
+                    file_name = int(re.sub('[a-z]', '', directory).replace(' - ', ''))
+                    with open(f'stories/{directory}/story{file_name:04d}.txt', "wb") as story_file:
+                        output = f"{reddit.submission(id=first_line).title + '\n\n' +  reddit.submission(id=first_line).selftext}"
+
+                        output = output.replace('AITA', 'Am I The Asshole')
+                        story_file.write(output.encode("utf-8"))
+
+                        stories_id.seek(0)
+                        stories_id.truncate()
+                        stories_id.writelines(lines[1:])
 
     create_story_file()
 
@@ -31,5 +38,3 @@ def make_files():
                 os.rename('stories/' + folders_in_dir[i], new_folder_name)
 
     change_dir_name('empty', 'check')
-
-# Path('stories/file.txt').touch()
