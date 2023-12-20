@@ -13,8 +13,8 @@ while isExit == False:
     if choiceIndex == 0:
         makeDir.make_dir()
     elif choiceIndex == 1:
-        makeFiles.make_files(getRedditApi.get_reddit_api())
+        makeFiles.make_files(getRedditApi.get_reddit())
     elif choiceIndex == 2:
-        getsId.gets_id(getRedditApi.get_reddit_api())
+        getsId.gets_id(getRedditApi.get_subreddit())
     elif choiceIndex == 3:
         isExit = True
