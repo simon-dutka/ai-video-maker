@@ -9,7 +9,7 @@ def get_choice():
         choices=choices)
     return  choices.index(choice)
     
-
+#! After select program is not exiting
 while isExit == False:
     choiceIndex = get_choice()
 
