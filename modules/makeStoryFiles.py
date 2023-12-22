@@ -3,7 +3,7 @@ import os, re
 
 dir_path = './stories'
 
-def make_files(reddit):
+def make_story_files(reddit):
     folders_in_dir = [
             folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
     ]
