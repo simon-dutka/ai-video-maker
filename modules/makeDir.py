@@ -17,7 +17,7 @@ def make_dir():
     # Allows get name of first created dir
     num_of_loop = 0
 
-    for i in range(folders_in_dir_last, folders_in_dir_last + 6):
+    for i in range(folders_in_dir_last, folders_in_dir_last + 1):
         num_of_loop += 1
         folders_in_dir_last = folders_in_dir_last + 1
         
