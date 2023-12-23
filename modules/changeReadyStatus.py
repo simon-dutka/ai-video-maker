@@ -1,14 +1,9 @@
-import inquirer, os
+import os
+from modules import getInquirerChoice
 
 dir_path = './stories'
 
 files = []
-
-def get_choice():
-    choice = inquirer.list_input("Which files you checked?",
-        choices=files)
-    return  files.index(choice)
-
 
 def change_ready_status():
     isExit = False
@@ -24,7 +19,7 @@ def change_ready_status():
 
         files.append('Exit')
 
-        choiceIndex = get_choice()
+        choiceIndex = getInquirerChoice.get_inquirer_choice('Which files you checked?', files)
 
         print('selected' + files[choiceIndex])
 

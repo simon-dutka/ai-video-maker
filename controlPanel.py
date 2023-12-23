@@ -1,5 +1,5 @@
 import inquirer
-from modules import makeDir, getsId, getRedditApi, changeReadyStatus, makeStoryFiles, makeVoiceFiles , makeVideoFiles
+from modules import makeDir, getsId, getRedditApi, changeReadyStatus, makeStoryFiles, makeVoiceFiles , makeVideoFiles, getInquirerChoice
 
 choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Exit']
 isExit = False
@@ -10,7 +10,8 @@ def get_choice():
     return  choices.index(choice)
     
 while isExit == False:
-    choiceIndex = get_choice()
+    choiceIndex = getInquirerChoice.get_inquirer_choice('What\'s we gonna do today?', choices)
+
 
     match choiceIndex:
         case 0:
