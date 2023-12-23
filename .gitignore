@@ -1,6 +1,11 @@
 # Api secret keys
 .secret/
 
+# Dir to story generated stories
+stories/*
+!stories/.gitkeep
+
+*/getStory.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
