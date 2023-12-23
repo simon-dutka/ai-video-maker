@@ -1,7 +1,7 @@
 import inquirer
 from modules import makeDir, getsId, getRedditApi, changeReadyStatus, makeStoryFiles, makeVoiceFiles , makeVideoFiles
 
-choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files' 'Get posts ID\'s', 'Set ready status', 'Exit']
+choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Exit']
 isExit = False
 
 def get_choice():
@@ -9,7 +9,6 @@ def get_choice():
         choices=choices)
     return  choices.index(choice)
     
-#! After select program is not exiting
 while isExit == False:
     choiceIndex = get_choice()
 
