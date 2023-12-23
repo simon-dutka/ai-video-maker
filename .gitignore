@@ -5,6 +5,10 @@
 stories/*
 !stories/.gitkeep
 
+# Dir to story reddit stories id's
+data/*
+!data/.gitkeep
+
 */getStory.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
