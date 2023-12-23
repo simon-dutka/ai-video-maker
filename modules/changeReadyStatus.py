@@ -2,11 +2,18 @@ import inquirer, os
 
 dir_path = './stories'
 
-def change_ready_status():
-    is_exit = False
+files = []
 
-    while is_exit == False:
-        files = []
+def get_choice():
+    choice = inquirer.list_input("Which files you checked?",
+        choices=files)
+    return  files.index(choice)
+
+
+def change_ready_status():
+    isExit = False
+
+    while isExit == False:
         folders_in_dir = [
                 folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
         ]
@@ -17,13 +24,14 @@ def change_ready_status():
 
         files.append('Exit')
 
-        choice = inquirer.list_input("Which files you checked?",
-        choices=files)
+        choiceIndex = get_choice()
 
-        if choice == 'Exit':
-             is_exit = True
+        print('selected' + files[choiceIndex])
+
+        if files[choiceIndex] == 'Exit':
+            isExit = True
         else:
-            choiceIndex = folders_in_dir.index(choice)
             new_folder_name = 'stories/' + folders_in_dir[choiceIndex].replace('check', 'ready')
             os.rename('stories/' + folders_in_dir[choiceIndex], new_folder_name)
-            files.clear()
+        
+        files.clear()
