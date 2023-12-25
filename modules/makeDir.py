@@ -1,10 +1,10 @@
 import os, re
 
 def make_dir():
-    dir_path = './stories'
+    dir_path = 'stories'
 
     # If /story is empty make first dir
-    if not os.listdir(dir_path):
+    if len(os.listdir(dir_path)) == 1 or len(os.listdir(dir_path)) == 0:
         os.makedirs(os.path.join(dir_path, "story0001 - empty"))
 
     folders_in_dir = [
