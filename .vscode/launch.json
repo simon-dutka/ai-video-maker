@@ -5,10 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Module",
+            "name": "Python: Main File",
             "type": "python",
             "request": "launch",
-            "module": "ai_video_maker",
+            "program": "ai_video_maker/__main__.py",
+            "console": "integratedTerminal",
             "justMyCode": true
         },
         {
