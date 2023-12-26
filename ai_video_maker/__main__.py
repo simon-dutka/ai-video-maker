@@ -13,13 +13,8 @@ from api.get_reddit_api import get_subreddit
 choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Exit']
 isExit = False
 
-def get_choice():
-    choice = inquirer.list_input("What's we gonna do today?",
-        choices=choices)
-    return  choices.index(choice)
-    
 while isExit == False:
-    choiceIndex = get_choice()
+    choiceIndex = get_inquirer_choice("What's we gonna do today?", choices)
 
     match choiceIndex:
         case 0:
