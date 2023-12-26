@@ -1,6 +1,6 @@
 # Get last (first of five) created folder
 import os, re
-from modules import changeDirName
+from directory import change_dir_name
 
 dir_path = './stories'
 
@@ -28,4 +28,4 @@ def make_story_files(reddit):
                     stories_id.truncate()
                     stories_id.writelines(lines[1:])
 
-    changeDirName.change_dir_name('empty', 'check', folders_in_dir, 'stories/')
+    change_dir_name.change_dir_name('empty', 'check', folders_in_dir, 'stories/')

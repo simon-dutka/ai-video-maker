@@ -1,5 +1,5 @@
 import os
-from modules import getInquirerChoice
+from inquirer_files import get_inquirer_choice
 
 dir_path = './stories'
 

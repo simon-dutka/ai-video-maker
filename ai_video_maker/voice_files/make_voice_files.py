@@ -3,6 +3,8 @@ import requests, json, os, re
 with open ('.secret/keys.json', 'r') as f:
     keys = json.load(f)
 
+# my_file = open("stories/story0001 - empty/story0001.txt", "r")
+# textFile = my_file.read()
 
 def make_voice_files():
   dir_path = './stories'
@@ -19,7 +21,7 @@ def make_voice_files():
   }
 
   data = {
-    "text": "sample",
+    "text": textFile,
     "model_id": "eleven_monolingual_v1",
     "voice_settings": {
       "stability": 0.5,
@@ -32,3 +34,5 @@ def make_voice_files():
       for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
           if chunk:
               f.write(chunk)
+
+# make_voice_files()
