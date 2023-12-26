@@ -1,5 +1,3 @@
-import inquirer
-
 from story_files.make_story_files import make_story_files
 from inquirer_files.get_inquirer_choice import get_inquirer_choice
 from voice_files.make_voice_files import make_voice_files
