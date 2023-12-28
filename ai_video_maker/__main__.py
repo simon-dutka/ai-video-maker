@@ -8,8 +8,9 @@ from directory.change_ready_status import change_ready_status
 from directory.make_dir import make_dir
 from api.get_reddit_api import get_subreddit
 from story_files.set_subreddit import set_subreddit
+from .settings.settings import settings
 
-choices = ['Make directory structure', 'Set subreddit', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Exit']
+choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Settings', 'Exit']
 isExit = False
 
 while isExit == False:
@@ -19,16 +20,16 @@ while isExit == False:
         case 0:
             make_dir()
         case 1:
-            set_subreddit()
-        case 2:
             make_story_files(get_reddit())
-        case 3:
+        case 2:
             make_voice_files()
-        case 4:
+        case 3:
             make_video_files()
-        case 5:
+        case 4:
             gets_id(get_subreddit())
-        case 6:
+        case 5:
             change_ready_status()
+        case 6:
+            settings()
         case 7:
             isExit = True
