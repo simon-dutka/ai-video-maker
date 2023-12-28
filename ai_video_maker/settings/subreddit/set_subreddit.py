@@ -1,8 +1,8 @@
 from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
-from ..story_files import list_of_subreddits
+from .set_own_subreddit import set_own_subreddit
 
 def set_subreddit():
-    choices = ['List of most popular subreddits', 'Exit']
+    choices = ['Set own subreddit', 'List of most popular subreddits', 'Exit']
     isExit = False
 
     while isExit == False:
@@ -10,6 +10,8 @@ def set_subreddit():
 
         match choiceIndex:
             case 0:
-                list_of_subreddits()
+                set_own_subreddit()
             case 1:
+                list_of_subreddits()
+            case 2:
                 isExit = True
