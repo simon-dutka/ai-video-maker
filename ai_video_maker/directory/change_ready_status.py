@@ -1,5 +1,5 @@
 import os
-from inquirer_files import get_inquirer_choice
+from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 
 dir_path = './stories'
 
@@ -19,7 +19,7 @@ def change_ready_status():
 
         files.append('Exit')
 
-        choiceIndex = getInquirerChoice.get_inquirer_choice('Which files you checked?', files)
+        choiceIndex = get_inquirer_choice('Which files you checked?', files)
 
         print('selected' + files[choiceIndex])
 

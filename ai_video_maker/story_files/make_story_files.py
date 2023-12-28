@@ -1,6 +1,6 @@
 # Get last (first of five) created folder
 import os, re
-from directory import change_dir_name
+from ai_video_maker.directory import change_dir_name
 
 dir_path = './stories'
 

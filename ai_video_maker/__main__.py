@@ -1,17 +1,30 @@
-from story_files.make_story_files import make_story_files
-from inquirer_files.get_inquirer_choice import get_inquirer_choice
-from voice_files.make_voice_files import make_voice_files
-from video_files.make_video_files import make_video_files
-from api.get_reddit_api import get_reddit
-from api.gets_id import gets_id
-from directory.change_ready_status import change_ready_status
-from directory.make_dir import make_dir
-from api.get_reddit_api import get_subreddit
-from story_files.set_subreddit import set_subreddit
+from .story_files.make_story_files import make_story_files
+from .inquirer_files.get_inquirer_choice import get_inquirer_choice
+from .voice_files.make_voice_files import make_voice_files
+from .video_files.make_video_files import make_video_files
+from .api.get_reddit_api import get_reddit
+from .api.gets_id import gets_id
+from .directory.change_ready_status import change_ready_status
+from .directory.make_dir import make_dir
+from .api.get_reddit_api import get_subreddit
 from .settings.settings import settings
 
 choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Settings', 'Exit']
 isExit = False
+
+from prawcore import NotFound
+
+# def sub_exists():
+#     isExist = False
+#     try:
+#         get_reddit().subreddit("")
+#     except NotFound:
+#         isExist = False
+#     isExist =  True
+
+#     return isExist
+
+# print(sub_exists())
 
 while isExit == False:
     choiceIndex = get_inquirer_choice("What's we gonna do today?", choices)
