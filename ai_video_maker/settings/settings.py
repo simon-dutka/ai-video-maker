@@ -5,7 +5,7 @@ from .subreddit.set_subreddit import set_subreddit
 from .voice.change_voice import change_voice
 
 def settings():
-    choices = ['Set subreddit', 'Exit']
+    choices = ['Set subreddit', 'Change voice', 'Exit']
 
     isExit = False
     
