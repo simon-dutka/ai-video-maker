@@ -18,5 +18,5 @@ def list_of_subreddits():
         'subreddit': 'Test'
     }
 
-    with open('data/settings.json', 'w') as settings:
+    with open('settings/settings.json', 'w') as settings:
         json.dump(subreddit, settings)

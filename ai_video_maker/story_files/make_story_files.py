@@ -13,7 +13,7 @@ def make_story_files(reddit):
     for directory in os.listdir('./stories'):
     
         if 'empty' in directory:
-            with open("data/stories_id.txt", "r+") as stories_id:
+            with open("stories_id/stories_id.txt", "r+") as stories_id:
                 first_line = stories_id.readline()
                 lines = stories_id.readlines()
                 

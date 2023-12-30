@@ -20,7 +20,7 @@ def make_voice_files():
     "xi-api-key": keys['ELEVEN_LABS_API_KEY']
   }
 
-  data = {
+  stories_id = {
     "text": textFile,
     "model_id": "eleven_monolingual_v1",
     "voice_settings": {
@@ -29,7 +29,7 @@ def make_voice_files():
     }
   }
 
-  response = requests.post(url, json=data, headers=headers)
+  response = requests.post(url, json=stories_id, headers=headers)
   with open('output.mp3', 'wb') as f:
       for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
           if chunk:
