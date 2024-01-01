@@ -12,20 +12,6 @@ from .settings.settings import settings
 choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Settings', 'Exit']
 isExit = False
 
-from prawcore import NotFound
-
-# def sub_exists():
-#     isExist = False
-#     try:
-#         get_reddit().subreddit("")
-#     except NotFound:
-#         isExist = False
-#     isExist =  True
-
-#     return isExist
-
-# print(sub_exists())
-
 while isExit == False:
     choiceIndex = get_inquirer_choice("What's we gonna do today?", choices)
 
