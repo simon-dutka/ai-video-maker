@@ -4,10 +4,10 @@ from .voice_files.set_file_to_make_voice import set_file_to_make_voice
 from .video_files.make_video_files import make_video_files
 from .api.get_reddit_api import get_reddit
 from .api.gets_id import gets_id
-from .directory.change_ready_status import change_ready_status
 from .directory.make_dir import make_dir
 from .api.get_reddit_api import get_subreddit
 from .settings.settings import settings
+from .statuses.statuses import statuses
 
 choices = ['Make directory structure', 'Make story files', 'Make voice files', 'Make video files', 'Get posts ID\'s', 'Set ready status', 'Settings', 'Exit']
 isExit = False
@@ -27,7 +27,7 @@ while isExit == False:
         case 4:
             gets_id(get_subreddit())
         case 5:
-            change_ready_status()
+            statuses()
         case 6:
             settings()
         case 7:
