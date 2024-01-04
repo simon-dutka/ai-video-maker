@@ -14,7 +14,7 @@ folders_in_dir = [
 
 print(folders_in_dir)
 
-def make_voice_file():
+def make_voice_file(story_file_name):
   dir_path = './stories'
     
   CHUNK_SIZE = 1024

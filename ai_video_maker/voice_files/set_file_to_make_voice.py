@@ -1,6 +1,6 @@
-import os
+import os, re
 from  ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
-
+from .make_voice_file import make_voice_file
 dir_path = 'stories'
 
 folders_in_dir = [
@@ -22,5 +22,4 @@ def set_file_to_make_voice():
         if (choiceIndex == index_of_exit):
             is_exit = True
         else:
-            print(choices[choiceIndex])
-            # return choices[choiceIndex]
+            make_voice_file(re.sub(r"- ready to make voice", "", choices[choiceIndex]))
