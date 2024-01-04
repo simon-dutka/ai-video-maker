@@ -6,7 +6,15 @@ with open ('.secret/keys.json', 'r') as f:
 # my_file = open("stories/story0001 - empty/story0001.txt", "r")
 # textFile = my_file.read()
 
-def make_voice_files():
+dir_path = 'stories'
+
+folders_in_dir = [
+    folder for folder in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, folder))
+]
+
+print(folders_in_dir)
+
+def make_voice_file():
   dir_path = './stories'
     
   CHUNK_SIZE = 1024
@@ -21,7 +29,7 @@ def make_voice_files():
   }
 
   stories_id = {
-    "text": textFile,
+    "text": 'textFile',
     "model_id": "eleven_monolingual_v1",
     "voice_settings": {
       "stability": 0.5,

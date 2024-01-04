@@ -1,6 +1,6 @@
 from .story_files.make_story_files import make_story_files
 from .inquirer_files.get_inquirer_choice import get_inquirer_choice
-from .voice_files.make_voice_files import make_voice_files
+from .voice_files.set_file_to_make_voice import set_file_to_make_voice
 from .video_files.make_video_files import make_video_files
 from .api.get_reddit_api import get_reddit
 from .api.gets_id import gets_id
@@ -9,7 +9,7 @@ from .directory.make_dir import make_dir
 from .api.get_reddit_api import get_subreddit
 from .settings.settings import settings
 
-choices = ['Make directory structure', 'Make story files', 'Make voice files', 'make video files', 'Get posts ID\'s', 'Set ready status', 'Settings', 'Exit']
+choices = ['Make directory structure', 'Make story files', 'Make voice files', 'Make video files', 'Get posts ID\'s', 'Set ready status', 'Settings', 'Exit']
 isExit = False
 
 while isExit == False:
@@ -21,7 +21,7 @@ while isExit == False:
         case 1:
             make_story_files(get_reddit())
         case 2:
-            make_voice_files()
+            set_file_to_make_voice()
         case 3:
             make_video_files()
         case 4:
