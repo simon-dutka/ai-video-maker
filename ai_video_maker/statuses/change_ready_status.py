@@ -5,6 +5,9 @@ dir_path = './stories'
 
 files = []
 
+def get_status_to_set():
+    pass
+
 def change_ready_status():
     isExit = False
 
