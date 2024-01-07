@@ -1,4 +1,4 @@
-import os
+import os, re 
 from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 
 dir_path = './stories'
@@ -13,14 +13,13 @@ def get_status_to_set():
     while is_exit == False:
         choiceIndex = get_inquirer_choice("Set type of status to set", choices)
 
-        match choiceIndex:
-            case 0:
-                change_ready_status(change_ready_status(choices[choiceIndex]))
-            case 2:
-                is_exit == True
-    
+        if choices[choiceIndex] == 'Exit':
+            is_exit == True
+        else:
+            change_ready_status(change_ready_status(choices[choiceIndex]))
 
 def change_ready_status(status_to_set):
+    print(status_to_set)
     isExit = False
 
     while isExit == False:
@@ -29,19 +28,19 @@ def change_ready_status(status_to_set):
         ]
 
         for i in range(len(folders_in_dir)):
-            if 'check' in folders_in_dir[i]:
-                files.append(folders_in_dir[i])
+            files.append(folders_in_dir[i])
 
         files.append('Exit')
 
-        choiceIndex = get_inquirer_choice('Which files you checked?', files)
-
-        print('selected' + files[choiceIndex])
+        choiceIndex = get_inquirer_choice('Set file to change status', files)
 
         if files[choiceIndex] == 'Exit':
             isExit = True
         else:
-            new_folder_name = 'stories/' + folders_in_dir[choiceIndex].replace('check', 'ready')
-            os.rename('stories/' + folders_in_dir[choiceIndex], new_folder_name)
+            old_folder_name = folders_in_dir[choiceIndex]
+            olds_status = re.split("story\d{4} - ", folders_in_dir[choiceIndex])
+            new_folder_name = old_folder_name.replace(olds_status[1], status_to_set)
+            
+            os.rename('stories/' + folders_in_dir[choiceIndex], 'stories/' + new_folder_name)
         
         files.clear()
