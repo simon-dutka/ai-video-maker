@@ -1,5 +1,6 @@
 from  ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 from .change_ready_status import get_status_to_set
+
 choices = ['Change statuses', 'Statuses stats', 'Exit']
 
 def statuses():

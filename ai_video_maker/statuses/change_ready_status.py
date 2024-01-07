@@ -6,9 +6,21 @@ dir_path = './stories'
 files = []
 
 def get_status_to_set():
-    pass
+    choices = ['Check story', 'Ready to make audio', 'Check audio', 'Ready to make video', 'Check video', 'Ready to upload' ,'Exit']
 
-def change_ready_status():
+    is_exit = False
+
+    while is_exit == False:
+        choiceIndex = get_inquirer_choice("Set type of status to set", choices)
+
+        match choiceIndex:
+            case 0:
+                change_ready_status(change_ready_status(choices[choiceIndex]))
+            case 2:
+                is_exit == True
+    
+
+def change_ready_status(status_to_set):
     isExit = False
 
     while isExit == False:
