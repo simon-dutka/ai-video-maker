@@ -19,7 +19,6 @@ def get_status_to_set():
             change_ready_status(change_ready_status(choices[choiceIndex]))
 
 def change_ready_status(status_to_set):
-    print(status_to_set)
     isExit = False
 
     while isExit == False:
