@@ -1,9 +1,9 @@
-import inquirer, json
+import inquirer
+import json
+
 
 def set_own_subreddit():
-    subreddit = {
-        'subreddit': inquirer.text(message="Enter subreddit title")
-    }
+    subreddit = {"subreddit": inquirer.text(message="Enter subreddit title")}
 
-    with open('settings/settings.json', 'w') as settings:
+    with open("settings/settings.json", "w") as settings:
         json.dump(subreddit, settings)

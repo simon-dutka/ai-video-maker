@@ -9,10 +9,19 @@ from .api.get_reddit_api import get_subreddit
 from .settings.settings import settings
 from .statuses.statuses import statuses
 
-choices = ['Make directory structure', 'Make story files', 'Make voice files', 'Make video files', 'Get posts ID\'s', 'Statuses', 'Settings', 'Exit']
+choices = [
+    "Make directory structure",
+    "Make story files",
+    "Make voice files",
+    "Make video files",
+    "Get posts ID's",
+    "Statuses",
+    "Settings",
+    "Exit",
+]
 isExit = False
 
-while isExit == False:
+while isExit is False:
     choiceIndex = get_inquirer_choice("What's we gonna do today?", choices)
 
     match choiceIndex:

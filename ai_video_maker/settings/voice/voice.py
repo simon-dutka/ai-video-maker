@@ -2,12 +2,13 @@ from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choic
 
 from .set_own_voice import set_own_voice
 
+
 def voice():
-    choices = ['Set own voice', 'List of voices to set', 'List of using voices', 'Exit']
-    
+    choices = ["Set own voice", "List of voices to set", "List of using voices", "Exit"]
+
     isExit = False
 
-    while isExit == False:
+    while isExit is False:
         choiceIndex = get_inquirer_choice("Voice settings", choices)
 
         match choiceIndex:
