@@ -12,7 +12,7 @@ def make_story_files(reddit):
     # Get Title and selfText by ID's & put into file texts
     for directory in os.listdir('./stories'):
     
-        if 'empty' in directory:
+        if 'Empty' in directory:
             with open("stories_id/stories_id.txt", "r+") as stories_id:
                 first_line = stories_id.readline()
                 lines = stories_id.readlines()
@@ -28,4 +28,4 @@ def make_story_files(reddit):
                     stories_id.truncate()
                     stories_id.writelines(lines[1:])
 
-    change_dir_name.change_dir_name('empty', 'check', folders_in_dir, 'stories/')
+    change_dir_name.change_dir_name('Empty', 'Check story', folders_in_dir, 'stories/')
