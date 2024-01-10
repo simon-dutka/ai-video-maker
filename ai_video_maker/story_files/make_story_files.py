@@ -19,7 +19,10 @@ def make_story_files(reddit):
                 first_line = stories_id.readline()
                 lines = stories_id.readlines()
 
-                file_name = int(re.sub("[a-z]", "", directory).replace(" - ", ""))
+                with open("stories_id/used_stories_id.txt", "a") as used_stories_id:
+                    used_stories_id.write(first_line)
+
+                file_name = int(re.sub("[a-z]|[A-Z]", "", directory).replace(" - ", ""))
                 with open(
                     f"stories/{directory}/story{file_name:04d}.txt", "wb"
                 ) as story_file:
