@@ -1,4 +1,5 @@
-import os, re
+import os
+import re
 from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 from .make_voice_file import make_voice_file
 
