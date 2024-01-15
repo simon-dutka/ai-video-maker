@@ -9,14 +9,22 @@ folders_in_dir = [
     for folder in os.listdir(dir_path)
     if os.path.isdir(os.path.join(dir_path, folder))
 ]
+choices = []
 
-choices = folders_in_dir
+for directory in os.listdir("./stories"):
+    if "- Ready to make audio" in directory:
+        choices.append(directory)
+
 choices.append("Exit")
 
 index_of_exit = len(choices) - 1
 
 
 def set_file_to_make_voice():
+    for directory in os.listdir("./stories"):
+        if "- Ready to make voice" in directory:
+            print(directory)
+
     is_exit = False
 
     while is_exit is False:
@@ -25,4 +33,4 @@ def set_file_to_make_voice():
         if choiceIndex == index_of_exit:
             is_exit = True
         else:
-            make_voice_file(re.sub(r"- ready to make voice", "", choices[choiceIndex]))
+            make_voice_file(re.sub(r"- Ready to make voice", "", choices[choiceIndex]))
