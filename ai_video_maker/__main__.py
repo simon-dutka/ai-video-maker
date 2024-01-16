@@ -9,6 +9,11 @@ from .api.get_reddit_api import get_subreddit
 from .settings.settings import settings
 from .statuses.statuses import statuses
 
+
+class exit_status:
+    isExit = False
+
+
 choices = [
     "Make directory structure",
     "Make story files",
@@ -19,25 +24,19 @@ choices = [
     "Settings",
     "Exit",
 ]
-isExit = False
 
-while isExit is False:
+choices_functions = [
+    make_dir,
+    lambda: make_story_files(get_reddit()),
+    set_file_to_make_voice,
+    make_video_files,
+    lambda: gets_id(get_subreddit()),
+    statuses,
+    settings,
+    lambda: setattr(exit_status, "isExit", True),
+]
+
+while exit_status.isExit is False:
     choiceIndex = get_inquirer_choice("What's we gonna do today?", choices)
 
-    match choiceIndex:
-        case 0:
-            make_dir()
-        case 1:
-            make_story_files(get_reddit())
-        case 2:
-            set_file_to_make_voice()
-        case 3:
-            make_video_files()
-        case 4:
-            gets_id(get_subreddit())
-        case 5:
-            statuses()
-        case 6:
-            settings()
-        case 7:
-            isExit = True
+    choices_functions[choiceIndex]()
