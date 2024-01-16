@@ -17,4 +17,4 @@ def statuses():
             case 1:
                 statuses_stats()
             case 2:
-                is_exit is True
+                is_exit = True

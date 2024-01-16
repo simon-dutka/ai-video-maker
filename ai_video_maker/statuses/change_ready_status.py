@@ -24,7 +24,7 @@ def get_status_to_set():
         choiceIndex = get_inquirer_choice("Set type of status to set", choices)
 
         if choices[choiceIndex] == "Exit":
-            is_exit is True
+            is_exit = True
         else:
             change_ready_status(change_ready_status(choices[choiceIndex]))
 
