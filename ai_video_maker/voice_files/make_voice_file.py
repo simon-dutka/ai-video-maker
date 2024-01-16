@@ -33,8 +33,10 @@ def make_voice_file(story_file_name):
         "voice_settings": {"stability": 0.5, "similarity_boost": 0.5},
     }
 
+    voice_file_name = re.sub(" - Ready to make audio", "", story_file_name)
+
     response = requests.post(url, json=stories_id, headers=headers)
-    with open("output.mp3", "wb") as f:
+    with open(f"stories/{story_file_name}/{voice_file_name}.mp3", "wb") as f:
         for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
             if chunk:
                 f.write(chunk)
