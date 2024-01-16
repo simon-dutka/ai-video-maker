@@ -34,4 +34,4 @@ def set_file_to_make_voice():
         if choiceIndex == index_of_exit:
             is_exit = True
         else:
-            make_voice_file(re.sub(r"- Ready to make voice", "", choices[choiceIndex]))
+            make_voice_file(choices[choiceIndex])
