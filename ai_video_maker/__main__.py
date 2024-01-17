@@ -20,29 +20,18 @@ class exit_status:
 
 is_exit = exit_status(False)
 
-choices = [
-    "Make directory structure",
-    "Make story files",
-    "Make voice files",
-    "Make video files",
-    "Get posts ID's",
-    "Statuses",
-    "Settings",
-    "Exit",
-]
-
-choices_functions = [
-    make_dir,
-    lambda: make_story_files(get_reddit()),
-    set_file_to_make_voice,
-    make_video_files,
-    lambda: gets_id(get_subreddit()),
-    statuses,
-    settings,
-    is_exit.change_exit_status,
-]
+choices = {
+    "Make directory structure": make_dir,
+    "Make story files": lambda: make_story_files(get_reddit()),
+    "Make voice files": set_file_to_make_voice,
+    "Make video files": make_video_files,
+    "Get posts ID's": lambda: gets_id(get_subreddit()),
+    "Statuses": statuses,
+    "Settings": settings,
+    "Exit": is_exit.change_exit_status,
+}
 
 while is_exit.is_exit == False:
-    choiceIndex = get_inquirer_choice("What's we gonna do today?", choices)
+    choiceIndex = get_inquirer_choice("What's we gonna do today?", list(choices.keys()))
 
-    choices_functions[choiceIndex]()
+    choices[list(choices)[choiceIndex]]()
