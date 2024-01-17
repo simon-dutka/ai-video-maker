@@ -11,8 +11,14 @@ from .statuses.statuses import statuses
 
 
 class exit_status:
-    isExit = False
+    def __init__(self, is_exit):
+        self.is_exit = is_exit
 
+    def change_exit_status(self):
+        self.is_exit = True
+
+
+is_exit = exit_status(False)
 
 choices = [
     "Make directory structure",
@@ -33,10 +39,10 @@ choices_functions = [
     lambda: gets_id(get_subreddit()),
     statuses,
     settings,
-    lambda: setattr(exit_status, "isExit", True),
+    is_exit.change_exit_status,
 ]
 
-while exit_status.isExit is False:
+while is_exit.is_exit == False:
     choiceIndex = get_inquirer_choice("What's we gonna do today?", choices)
 
     choices_functions[choiceIndex]()
