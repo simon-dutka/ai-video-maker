@@ -1,7 +1,15 @@
 {
-    "subreddit": "AITA",
-    "voice_id": "test03",
-    "voice_name": "",
-    "voice_id-1": "test04",
-    "num_of_directories": 5
+    "subredditSettings": {
+        "subreddit": "AITA"
+    },
+
+    "voiceSettings": {
+        "voice_id": "test03",
+        "voice_name": "",
+        "voice_id-1": "test04"
+    },
+
+    "directoriesSettings": {
+        "num_of_directories": 5
+    }
 }
