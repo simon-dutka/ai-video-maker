@@ -3,10 +3,11 @@ from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choic
 from .directories.directories import directories
 from .subreddit.subreddit import subreddit
 from .voice.voice import voice
+from .default.set_default_settings import set_default_settings
 
 
 def settings():
-    choices = ["Directories", "Subreddit", "Voice", "Exit"]
+    choices = ["Directories", "Subreddit", "Voice", "Set default settings", "Exit"]
 
     isExit = False
 
@@ -16,9 +17,11 @@ def settings():
         match choiceIndex:
             case 0:
                 directories()
-            case 0:
-                subreddit()
             case 1:
-                voice()
+                subreddit()
             case 2:
+                voice()
+            case 3:
+                set_default_settings()
+            case 4:
                 isExit = True
