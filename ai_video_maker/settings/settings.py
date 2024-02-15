@@ -7,21 +7,24 @@ from .default.set_default_settings import set_default_settings
 
 
 def settings():
-    choices = ["Directories", "Subreddit", "Voice", "Set default settings", "Exit"]
+    class exit_status:
+        def __init__(self, is_exit):
+            self.is_exit = is_exit
 
-    isExit = False
+        def change_exit_status(self):
+            self.is_exit = True
 
-    while isExit is False:
-        choiceIndex = get_inquirer_choice("Settings", choices)
+    is_exit = exit_status(False)
 
-        match choiceIndex:
-            case 0:
-                directories()
-            case 1:
-                subreddit()
-            case 2:
-                voice()
-            case 3:
-                set_default_settings()
-            case 4:
-                isExit = True
+    choices = {
+        "Directories": directories,
+        "Subreddit": subreddit,
+        "Voice": voice,
+        "Set default settings": set_default_settings,
+        "Exit": is_exit.change_exit_status,
+    }
+
+    while is_exit.is_exit == False:
+        choiceIndex = get_inquirer_choice("Settings", list(choices.keys()))
+
+        choices[list(choices)[choiceIndex]]()
