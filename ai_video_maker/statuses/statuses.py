@@ -2,19 +2,24 @@ from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choic
 from .change_ready_status import get_status_to_set
 from .statuses_stats import statuses_stats
 
-choices = ["Change statuses", "Statuses stats", "Exit"]
-
 
 def statuses():
-    is_exit = False
+    class exit_status:
+        def __init__(self, is_exit):
+            self.is_exit = is_exit
 
-    while is_exit is False:
-        choiceIndex = get_inquirer_choice("Statuses", choices)
+        def change_exit_status(self):
+            self.is_exit = True
 
-        match choiceIndex:
-            case 0:
-                get_status_to_set()
-            case 1:
-                statuses_stats()
-            case 2:
-                is_exit = True
+    is_exit = exit_status(False)
+
+    choices = {
+        "Change statuses": get_status_to_set,
+        "Statuses stats": statuses_stats,
+        "Exit": is_exit.change_exit_status,
+    }
+
+    while is_exit.is_exit == False:
+        choiceIndex = get_inquirer_choice("Statuses", list(choices.keys()))
+
+        choices[list(choices)[choiceIndex]]()
