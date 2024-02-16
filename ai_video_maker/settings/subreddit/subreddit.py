@@ -3,23 +3,25 @@ from .set_own_subreddit import set_own_subreddit
 
 
 def subreddit():
-    choices = [
-        "Set own subreddit",
-        "List of most popular subreddits to set",
-        "Show using subreddits",
-        "Exit",
-    ]
+    class exit_status:
+        def __init__(self, is_exit):
+            self.is_exit = is_exit
+
+        def change_exit_status(self):
+            self.is_exit = True
+
+    is_exit = exit_status(False)
+
+    choices = {
+        "Set own subreddit": set_own_subreddit,
+        "List of most popular subreddits to set": list_of_subreddits,
+        "Show using subreddits": show_using_subreddits,
+        "Exit": is_exit.change_exit_status,
+    }
+
     isExit = False
 
-    while isExit is False:
-        choiceIndex = get_inquirer_choice("Subreddit settings", choices)
+    while is_exit.is_exit == False:
+        choiceIndex = get_inquirer_choice("Subreddit settings", list(choices.keys()))
 
-        match choiceIndex:
-            case 0:
-                set_own_subreddit()
-            case 1:
-                list_of_subreddits()
-            case 3:
-                show_using_subreddits()
-            case 4:
-                isExit = True
+        choices[list(choices)[choiceIndex]]()
