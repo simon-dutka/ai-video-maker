@@ -20,7 +20,7 @@ def get_status_to_set():
 
     is_exit = False
 
-    while is_exit is False:
+    while is_exit == False:
         choiceIndex = get_inquirer_choice("Set type of status to set", choices)
 
         if choices[choiceIndex] == "Exit":
@@ -32,7 +32,7 @@ def get_status_to_set():
 def change_ready_status(status_to_set):
     isExit = False
 
-    while isExit is False:
+    while isExit == False:
         folders_in_dir = [
             folder
             for folder in os.listdir(dir_path)
@@ -46,6 +46,7 @@ def change_ready_status(status_to_set):
 
         choiceIndex = get_inquirer_choice("Set file to change status", files)
 
+        print(files[choiceIndex])
         if files[choiceIndex] == "Exit":
             isExit = True
         else:
