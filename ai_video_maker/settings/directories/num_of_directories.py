@@ -6,7 +6,7 @@ def num_of_directories():
     with open("settings/settings.json", "r") as jsonFile:
         json_data = json.load(jsonFile)
 
-    json_data["num_of_directories"] = int(
+    json_data["directoriesSettings"]["num_of_directories"] = int(
         inquirer.text(message="Enter number of directories to create")
     )
 

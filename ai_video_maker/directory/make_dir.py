@@ -21,7 +21,7 @@ def make_dir():
         )
 
     with open("settings/settings.json", "r") as f:
-        num_of_directories = json.load(f)["num_of_directories"]
+        num_of_directories = json.load(f)["directoriesSettings"]["num_of_directories"]
 
         end_of_range = folders_in_dir_last + num_of_directories
 
