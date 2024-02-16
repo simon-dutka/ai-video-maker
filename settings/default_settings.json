@@ -1,1 +1,14 @@
-{}
+{
+    "subredditSettings": {
+        "subreddit": "AITA"
+    },
+
+    "voiceSettings": {
+        "voice_id": "01",
+        "voice_name": ""
+    },
+
+    "directoriesSettings": {
+        "num_of_directories": 5
+    }
+}
