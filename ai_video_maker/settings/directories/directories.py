@@ -4,15 +4,23 @@ from .num_of_directories import num_of_directories
 
 
 def directories():
-    choices = ["Change number of creating directories", "Exit"]
+    class exit_status:
+        def __init__(self, is_exit):
+            self.is_exit = is_exit
+
+        def change_exit_status(self):
+            self.is_exit = True
+
+    is_exit = exit_status(False)
+
+    choices = {
+        "Change number of creating directories": num_of_directories,
+        "Exit": is_exit.change_exit_status,
+    }
 
     isExit = False
 
-    while isExit is False:
-        choiceIndex = get_inquirer_choice("Settings", choices)
+    while is_exit.is_exit == False:
+        choiceIndex = get_inquirer_choice("Settings", list(choices.keys()))
 
-        match choiceIndex:
-            case 0:
-                num_of_directories()
-            case 1:
-                isExit = True
+        choices[list(choices)[choiceIndex]]()
