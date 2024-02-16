@@ -9,6 +9,10 @@ stories/*
 stories_id/*
 !stories_id/.gitkeep
 
+# Dir to story downloaded background videos
+background_videos/*
+!background_videos/.gitkeep
+
 */getStory.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
