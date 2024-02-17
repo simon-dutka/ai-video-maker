@@ -1,6 +1,7 @@
 from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 
 from .set_all_default import set_all_default
+from .set_part_default import show_parts
 
 
 def set_default_settings():
@@ -15,7 +16,7 @@ def set_default_settings():
 
     choices = {
         "Set all of settings as default": set_all_default,
-        "Set part of settings as default: set_part_default": set_part_default,
+        "Set part of settings as default": show_parts,
         "Exit": is_exit.change_exit_status,
     }
 
