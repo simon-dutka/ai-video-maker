@@ -8,6 +8,7 @@ from .directory.make_dir import make_dir
 from .api.get_reddit_api import get_subreddit
 from .settings.settings import settings
 from .statuses.statuses import statuses
+from .manual.manual import manual
 
 
 class exit_status:
@@ -28,6 +29,7 @@ choices = {
     "Get posts ID's": lambda: gets_id(get_subreddit()),
     "Statuses": statuses,
     "Settings": settings,
+    "Manual": manual,
     "Exit": is_exit.change_exit_status,
 }
 
