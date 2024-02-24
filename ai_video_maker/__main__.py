@@ -9,6 +9,7 @@ from .api.get_reddit_api import get_subreddit
 from .settings.settings import settings
 from .statuses.statuses import statuses
 from .manual.manual import manual
+from one_click_video.one_click_video import one_click_video
 
 
 class exit_status:
@@ -22,6 +23,7 @@ class exit_status:
 is_exit = exit_status(False)
 
 choices = {
+    "One click video": one_click_video,
     "Make directory structure": make_dir,
     "Make story files": lambda: make_story_files(get_reddit()),
     "Make voice files": set_file_to_make_voice,
