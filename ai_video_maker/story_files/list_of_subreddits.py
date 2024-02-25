@@ -4,16 +4,16 @@ from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choic
 
 def list_of_subreddits():
     choices = ["List of most popular subreddits", "Exit"]
-    isExit = False
+    is_exit = False
 
-    while isExit is False:
+    while is_exit is False:
         choiceIndex = get_inquirer_choice("Set subreddit to use", choices)
 
         match choiceIndex:
             case 0:
                 list_of_subreddits()
             case 1:
-                isExit = True
+                is_exit = True
 
     subreddit = {"subreddit": "Test"}
 

@@ -20,7 +20,7 @@ def voice():
         "Exit": is_exit.change_exit_status,
     }
 
-    isExit = False
+    is_exit = False
 
     while is_exit.is_exit == False:
         choiceIndex = get_inquirer_choice("Voice settings", list(choices.keys()))

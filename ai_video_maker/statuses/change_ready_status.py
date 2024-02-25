@@ -30,9 +30,9 @@ def get_status_to_set():
 
 
 def change_ready_status(status_to_set):
-    isExit = False
+    is_exit = False
 
-    while isExit == False:
+    while is_exit == False:
         folders_in_dir = [
             folder
             for folder in os.listdir(dir_path)
@@ -48,7 +48,7 @@ def change_ready_status(status_to_set):
 
         print(files[choiceIndex])
         if files[choiceIndex] == "Exit":
-            isExit = True
+            is_exit = True
         else:
             old_folder_name = folders_in_dir[choiceIndex]
             olds_status = re.split("story\d{4} - ", folders_in_dir[choiceIndex])
