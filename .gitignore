@@ -2,16 +2,21 @@
 .secret/
 
 # Dir to story generated stories
-stories/*
+# stories/*
 !stories/.gitkeep
+
 
 # Dir to story reddit stories id's
 stories_id/*
 !stories_id/.gitkeep
 
 # Dir to story downloaded background videos
-background_videos/*
-!background_videos/.gitkeep
+background_videos/multiple_times_used/*
+!background_videos/multiple_times_used/.gitkeep
+background_videos/never_used/*
+!background_videos/never_used/.gitkeep
+background_videos/one_time_used/*
+!background_videos/one_time_used/.gitkeep
 
 */getStory.py
 # Byte-compiled / optimized / DLL files
