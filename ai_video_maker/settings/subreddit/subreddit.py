@@ -1,5 +1,6 @@
 from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 from .set_own_subreddit import set_own_subreddit
+from .show_using_subreddits import show_using_subreddits
 
 
 def subreddit():
@@ -21,7 +22,7 @@ def subreddit():
 
     is_exit = False
 
-    while is_exit.is_exit == False:
+    while is_exit == False:
         choiceIndex = get_inquirer_choice("Subreddit settings", list(choices.keys()))
 
         choices[list(choices)[choiceIndex]]()
