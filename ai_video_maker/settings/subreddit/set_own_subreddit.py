@@ -4,7 +4,7 @@ import json
 
 def set_own_subreddit():
     subreddit = {
-        ["subredditSettings"]["subreddit"]: inquirer.text(
+        ["subredditSettings"]["using-subreddit"]: inquirer.text(
             message="Enter subreddit title"
         )
     }
