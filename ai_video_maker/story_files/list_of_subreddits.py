@@ -15,7 +15,7 @@ def list_of_subreddits():
             case 1:
                 is_exit = True
 
-    subreddit = {"subreddit": "Test"}
+    subreddit = {"using-subreddit": "Test"}
 
     with open("settings/settings.json", "w") as settings:
         json.dump(subreddit, settings)
