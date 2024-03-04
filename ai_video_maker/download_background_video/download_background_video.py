@@ -1,13 +1,19 @@
+import os
 from pytube import YouTube
 
 
 def download_background_video(url):
-    yt = YouTube(url).yt.streams.get_highest_resolution()
+    yt = YouTube(url).streams.get_highest_resolution()
 
     video_name = input("Enter the video name: ")
 
     try:
-        (yt.download("../background_videos", filename=(video_name + ".mp4")),)
+        (
+            yt.download(
+                "background_videos/never_used",
+                filename=(video_name + ".mp4"),
+            ),
+        )
     except:
         print("Error")
 
