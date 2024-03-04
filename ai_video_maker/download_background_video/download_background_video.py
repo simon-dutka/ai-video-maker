@@ -1,4 +1,3 @@
-import os
 from pytube import YouTube
 
 
@@ -6,7 +5,6 @@ def download_background_video(url):
     yt = YouTube(url).streams.get_highest_resolution()
 
     video_name = input("Enter the video name: ")
-
     try:
         (
             yt.download(
@@ -16,8 +14,3 @@ def download_background_video(url):
         )
     except:
         print("Error")
-
-
-video_url = input("enter the video URL: ")
-
-download_background_video(video_url)
