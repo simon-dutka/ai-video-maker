@@ -10,6 +10,9 @@ from .settings.settings import settings
 from .statuses.statuses import statuses
 from .manual.manual import manual
 from one_click_video.one_click_video import one_click_video
+from .download_background_video.download_background_video import (
+    download_background_video,
+)
 
 
 class exit_status:
@@ -28,6 +31,9 @@ choices = {
     "Make story files": lambda: make_story_files(get_reddit()),
     "Make voice files": set_file_to_make_voice,
     "Make video files": make_video_files,
+    "Download background": lambda: download_background_video(
+        input("Enter the video URL: ")
+    ),
     "Get posts ID's": lambda: gets_id(get_subreddit()),
     "Statuses": statuses,
     "Settings": settings,
