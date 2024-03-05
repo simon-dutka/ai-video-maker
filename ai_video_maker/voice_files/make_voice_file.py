@@ -3,7 +3,10 @@ import requests, json, os, re
 with open(".secret/keys.json", "r") as f:
     keys = json.load(f)
 
-dir_path = "stories"
+dir_path = "./stories"
+
+if not os.path.exists(dir_path):
+    os.makedirs(dir_path)
 
 folders_in_dir = [
     folder

@@ -4,7 +4,10 @@ import json
 
 
 def make_dir():
-    dir_path = "stories"
+    dir_path = "./stories"
+
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
 
     folders_in_dir = [
         folder
