@@ -1,4 +1,3 @@
-from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 from .set_own_subreddit import set_own_subreddit
 from .show_using_subreddits import show_using_subreddits
 from ai_video_maker.choice.set_choice import set_choice
