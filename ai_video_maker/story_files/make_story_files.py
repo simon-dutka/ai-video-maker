@@ -26,7 +26,7 @@ def make_story_files(reddit):
                 with open(
                     f"stories/{directory}/story{file_name:04d}.txt", "wb"
                 ) as story_file:
-                    output = f"{reddit.submission(id=first_line).title + '\n\n' +  reddit.submission(id=first_line).selftext}"
+                    output = f"{reddit.submission(id=first_line).title}\n\n{reddit.submission(id=first_line).selftext}"
 
                     output = output.replace("AITA", "Am I The Asshole")
                     story_file.write(output.encode("utf-8"))
