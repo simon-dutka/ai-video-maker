@@ -1,37 +1,13 @@
 import os
-import re
-from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 from .make_voice_file import make_voice_file
-
-dir_path = "stories"
-
-folders_in_dir = [
-    folder
-    for folder in os.listdir(dir_path)
-    if os.path.isdir(os.path.join(dir_path, folder))
-]
-choices = []
-
-for directory in os.listdir("./stories"):
-    if "- Ready to make audio" in directory:
-        choices.append(directory)
-
-choices.append("Exit")
-
-index_of_exit = len(choices) - 1
+from ai_video_maker.choice.set_choice import set_choice
 
 
 def set_file_to_make_voice():
+    choices = {}
+
     for directory in os.listdir("./stories"):
-        if "- Ready to make voice" in directory:
-            print(directory)
+        if "- Ready to make audio" in directory:
+            choices[directory] = lambda: make_voice_file(directory)
 
-    is_exit = False
-
-    while is_exit is False:
-        choiceIndex = get_inquirer_choice("Set file to make voice", choices)
-
-        if choiceIndex == index_of_exit:
-            is_exit = True
-        else:
-            make_voice_file(choices[choiceIndex])
+    set_choice(choices, "Set file to make voice")
