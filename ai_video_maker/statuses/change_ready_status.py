@@ -4,6 +4,9 @@ from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choic
 
 dir_path = "./stories"
 
+if not os.path.exists(dir_path):
+    os.makedirs(dir_path)
+
 files = []
 
 

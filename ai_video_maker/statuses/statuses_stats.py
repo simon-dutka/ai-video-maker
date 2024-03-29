@@ -3,6 +3,9 @@ import re
 
 dir_path = "./stories"
 
+if not os.path.exists(dir_path):
+    os.makedirs(dir_path)
+
 
 def statuses_stats():
     existing_statuses = []

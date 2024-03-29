@@ -4,6 +4,9 @@ from ai_video_maker.directory import change_dir_name
 
 dir_path = "./stories"
 
+if not os.path.exists(dir_path):
+    os.makedirs(dir_path)
+
 
 def make_story_files(reddit):
     folders_in_dir = [
