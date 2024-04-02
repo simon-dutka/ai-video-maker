@@ -1,5 +1,5 @@
 from .set_own_voice import set_own_voice
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 
 def voice():
@@ -10,4 +10,7 @@ def voice():
         "Exit": None,
     }
 
-    set_choice(choices, "Voice settings")
+    return set_choice(
+        "Voice settings",
+        choices,
+    )

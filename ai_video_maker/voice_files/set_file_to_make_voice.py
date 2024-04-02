@@ -1,6 +1,6 @@
 import os
 from .make_voice_file import make_voice_file
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 
 def set_file_to_make_voice():
@@ -10,4 +10,4 @@ def set_file_to_make_voice():
         if "- Ready to make audio" in directory:
             choices[directory] = lambda: make_voice_file(directory)
 
-    set_choice(choices, "Set file to make voice")
+    return set_choice("Set file to make voice", choices)

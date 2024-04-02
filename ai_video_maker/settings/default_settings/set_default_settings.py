@@ -1,6 +1,6 @@
 from .set_all_default import set_all_default
 from .set_part_default import show_parts
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 
 def set_default_settings():
@@ -10,4 +10,7 @@ def set_default_settings():
         "Exit": None,
     }
 
-    set_choice(choices, "Set settings as default")
+    return set_choice(
+        "Set settings as default",
+        choices,
+    )
