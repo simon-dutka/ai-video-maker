@@ -8,4 +8,7 @@ def directories():
         "Exit": None,
     }
 
-    set_choice(choices, "Settings")
+    return set_choice(
+        "Settings",
+        choices,
+    )
