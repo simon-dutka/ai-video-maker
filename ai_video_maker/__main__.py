@@ -27,13 +27,7 @@ choices = {
     "Exit": None,
 }
 
-while True:
-    func = set_choice(
-        "What's we gonna do today?",
-        choices,
-    )
-
-    if func is None:
-        break
-
-    func()
+set_choice(
+    "What's we gonna do today?",
+    choices,
+)
