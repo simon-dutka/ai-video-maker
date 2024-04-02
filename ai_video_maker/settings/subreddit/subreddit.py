@@ -10,4 +10,8 @@ def subreddit():
         "Show using subreddits": show_using_subreddits,
         "Exit": None,
     }
-    set_choice(choices, "Subreddit settings")
+
+    return set_choice(
+        "Subreddit settings",
+        choices,
+    )
