@@ -15,5 +15,7 @@ def set_choice(title, choices):
         # Execute function based on selected choice
         func = choice_values[choice_keys.index(choice)]
 
-        if func is not None:
-            func()
+        if func is None:
+            break
+
+        func()
