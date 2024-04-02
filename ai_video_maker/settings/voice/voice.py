@@ -10,4 +10,7 @@ def voice():
         "Exit": None,
     }
 
-    set_choice(choices, "Voice settings")
+    return set_choice(
+        "Voice settings",
+        choices,
+    )
