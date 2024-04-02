@@ -1,19 +1,19 @@
-from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
+import inquirer
 
 
-def set_choice(choices, title):
-    class ExitStatus:
-        def __init__(self, is_exit):
-            self.is_exit = is_exit
+def set_choice(title, choices):
+    while True:
+        choice_keys = []
+        choice_values = []
 
-        def change_exit_status(self):
-            self.is_exit = True
+        for key, value in choices.items():
+            choice_keys.append(key)
+            choice_values.append(value)
 
-    is_exit = ExitStatus(False)
+        choice = inquirer.list_input(title, choices=choice_keys)
 
-    while is_exit.is_exit == False:
-        choice_index = get_inquirer_choice(title, list(choices.keys()))
+        # Execute function based on selected choice
+        func = choice_values[choice_keys.index(choice)]
 
-        if list(choices)[choice_index] == "Exit":
-            break
-        choices[list(choices)[choice_index]]()
+        if func is not None:
+            func()
