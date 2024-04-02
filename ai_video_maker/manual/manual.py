@@ -16,4 +16,4 @@ def display_manual(file_path):
 
 
 def manual():
-    set_choice(choices, "Manual")
+    set_choice("Manual", choices)()
