@@ -10,4 +10,7 @@ def set_default_settings():
         "Exit": None,
     }
 
-    set_choice(choices, "Set settings as default")
+    return set_choice(
+        "Set settings as default",
+        choices,
+    )
