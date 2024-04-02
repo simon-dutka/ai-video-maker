@@ -10,4 +10,4 @@ def set_file_to_make_voice():
         if "- Ready to make audio" in directory:
             choices[directory] = lambda: make_voice_file(directory)
 
-    set_choice(choices, "Set file to make voice")
+    return set_choice("Set file to make voice", choices)
