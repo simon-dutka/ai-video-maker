@@ -1,6 +1,6 @@
 import os
 from .make_voice_file import make_voice_file
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 
 def set_file_to_make_voice():

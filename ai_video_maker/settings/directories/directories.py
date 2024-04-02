@@ -1,5 +1,5 @@
 from .num_of_directories import num_of_directories
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 
 def directories():

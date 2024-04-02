@@ -1,6 +1,6 @@
 from .set_own_subreddit import set_own_subreddit
 from .show_using_subreddits import show_using_subreddits
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 
 def subreddit():

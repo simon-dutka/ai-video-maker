@@ -1,5 +1,5 @@
 from .set_own_voice import set_own_voice
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 
 def voice():

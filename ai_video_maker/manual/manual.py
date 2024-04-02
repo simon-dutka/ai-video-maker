@@ -1,6 +1,6 @@
 from rich.console import Console
 from rich.markdown import Markdown
-from ai_video_maker.choice.set_choice import set_choice
+from ai_video_maker.choice import set_choice
 
 choices = {
     "How to change voice": lambda: display_manual(
