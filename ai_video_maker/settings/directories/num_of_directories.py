@@ -11,4 +11,4 @@ def num_of_directories():
     )
 
     with open("settings/settings.json", "w") as jsonFile:
-        json.dump(json_data, jsonFile)
+        json.dump(json_data, jsonFile, indent=4)

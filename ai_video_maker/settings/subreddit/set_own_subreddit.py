@@ -10,4 +10,4 @@ def set_own_subreddit():
     }
 
     with open("settings/settings.json", "w") as settings:
-        json.dump(subreddit, settings)
+        json.dump(subreddit, settings, indent=4)

@@ -18,4 +18,4 @@ def list_of_subreddits():
     subreddit = {"using-subreddit": "Test"}
 
     with open("settings/settings.json", "w") as settings:
-        json.dump(subreddit, settings)
+        json.dump(subreddit, settings, indent=4)

@@ -13,4 +13,4 @@ def set_own_voice():
     data["voice_id-1"] = inquirer.text(message="Enter voice id")
 
     with open("settings/settings.json", "w") as jsonFile:
-        json.dump(data, jsonFile)
+        json.dump(data, jsonFile, indent=4)
