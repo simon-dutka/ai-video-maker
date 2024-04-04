@@ -1,6 +1,7 @@
 import os
 import re
 import json
+from ai_video_maker.info import create_info
 
 
 def make_dir():
@@ -31,7 +32,11 @@ def make_dir():
         for i in range(folders_in_dir_last, end_of_range):
             folders_in_dir_last = folders_in_dir_last + 1
 
-            folder_name = f"story{folders_in_dir_last:04d} - Empty"
+            folder_name = f"story{folders_in_dir_last:04d}"
 
             path = os.path.join(dir_path, folder_name)
             os.makedirs(path)
+
+            file_path = os.path.join(f"./stories/{folder_name}/info.json")
+
+            create_info(file_path, folder_name)
