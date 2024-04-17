@@ -10,7 +10,7 @@ def set_directory_to_change_status():
     ]
 
     directories_names = []
-    chocies = {}
+    choices = {}
 
     if directories:
         for directory in directories:
@@ -26,9 +26,9 @@ def set_directory_to_change_status():
     for key in directories_names:
         new_choices[key] = lambda: change_status(key)
 
-    chocies.update(new_choices)
+    choices.update(new_choices)
 
     return set_choice(
         "Set directory to change status",
-        chocies,
+        choices,
     )
