@@ -1,6 +1,6 @@
 import os
 from ai_video_maker.choice import set_choice
-from . import change_status
+from .change_status import change_status
 
 
 def set_directory_to_change_status():
@@ -28,6 +28,7 @@ def set_directory_to_change_status():
 
     choices.update(new_choices)
 
+    print(choices)
     return set_choice(
         "Set directory to change status",
         choices,
