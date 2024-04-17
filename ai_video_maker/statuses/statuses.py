@@ -1,6 +1,7 @@
 from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
-from .change_ready_status import get_status_to_set
+
 from .statuses_stats import statuses_stats
+from .set_directory_to_change_status import set_directory_to_change_status
 
 
 def statuses():
@@ -14,7 +15,7 @@ def statuses():
     is_exit = exit_status(False)
 
     choices = {
-        "Change statuses": get_status_to_set,
+        "Change statuses": set_directory_to_change_status,
         "Statuses stats": statuses_stats,
         "Exit": is_exit.change_exit_status,
     }
