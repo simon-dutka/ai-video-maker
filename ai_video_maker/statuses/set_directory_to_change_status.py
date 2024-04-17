@@ -5,31 +5,20 @@ from .change_status import change_status
 
 def set_directory_to_change_status():
     dire_path = "./stories/"
+
     directories = [
         f for f in os.listdir(dire_path) if os.path.isdir(os.path.join(dire_path, f))
     ]
 
-    directories_names = []
+    if not directories:
+        print("No available directories")
+
     choices = {}
 
-    if directories:
-        for directory in directories:
-            directories_names.append(directory)
-    else:
-        print("No avaiable directories")
+    for directory in directories:
+        choices[directory] = lambda dir=directory: change_status(dir)
 
-    new_choices = {}
+    return set_choice("Set directory to change status", choices)
 
-    def test():
-        pass
 
-    for key in directories_names:
-        new_choices[key] = lambda: change_status(key)
-
-    choices.update(new_choices)
-
-    print(choices)
-    return set_choice(
-        "Set directory to change status",
-        choices,
-    )
+set_directory_to_change_status()
