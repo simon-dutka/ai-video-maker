@@ -1,5 +1,6 @@
 import os
 import json
+from .create_info import create_info
 
 dir_path = "./stories"
 
@@ -8,31 +9,31 @@ if not os.path.exists(dir_path):
 
 
 def statuses_stats():
-    # Add more statuses
+    # ToDo: Add more statuses
     statuses = {"empty": 0}
 
-    info_file = os.path.join(dir_path, "info.json")
+    # Function to check if "info.json" exists in a folder
+    def check_info_json(folder):
+        info_json_path = os.path.join(folder, "info.json")
+        return os.path.exists(info_json_path)
 
-    # Check if info.json exists in directory
-    if os.path.exists(info_file):
-        with open(info_file, "r") as f:
-            data = json.load(f)
-            status = data.get("status")
-            if status in statuses:
-                statuses[status] += 1
-    else:
-        # ToDo: Create info.json file if not exists
-        pass
+    # Go through the subfolders
+    for subfolder in os.listdir(dir_path):
+        folder_path = os.path.join(dir_path, subfolder)
+        if os.path.isdir(folder_path):
+            # Create info.json file if not exists
+            if check_info_json(folder_path) == False:
+                file_path = os.path.join(f"./stories/{subfolder}/info.json")
+                create_info(file_path, subfolder)
 
-    for item in os.listdir(dir_path):
-        item_path = os.path.join(dir_path, item)
-        if os.path.isdir(item_path):
-            for file in os.listdir(item_path):
-                with open(os.path.join(item_path, file), "r") as f:
-                    story_data = json.load(f)
-                    status = story_data.get("status", "empty")
-                    if status in statuses:
-                        statuses[status] += 1
+            info_file = os.path.join(dir_path, subfolder, "info.json")
+
+            with open(info_file, "r") as f:
+                data = json.load(f)
+                status = data.get("status")
+
+                if status in statuses:
+                    statuses[status] += 1
 
     print("Statistics")
     for key in statuses:
