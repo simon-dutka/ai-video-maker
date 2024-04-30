@@ -9,7 +9,13 @@ if not os.path.exists(dir_path):
 
 
 def statuses_stats():
+    statistics_file = "./statistics.md"
+    if not os.path.exists(statistics_file):
+        with open(statistics_file, "w") as file:
+            pass
+
     # ToDo: Add more statuses
+    #! ToDo: Should get data from statistics.md
     statuses = {"empty": 0}
 
     # Function to check if "info.json" exists in a folder
