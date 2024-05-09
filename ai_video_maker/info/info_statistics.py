@@ -10,8 +10,10 @@ if not os.path.exists(dir_path):
 
 def statuses_stats():
     statistics_file = "./statistics.md"
+
+    # Create statistics.md if not exists
     if not os.path.exists(statistics_file):
-        with open(statistics_file, "w") as file:
+        with open(statistics_file, "w") as f:
             pass
 
     # ToDo: Add more statuses
