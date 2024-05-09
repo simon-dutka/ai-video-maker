@@ -16,9 +16,15 @@ def statuses_stats():
         with open(statistics_file, "w") as f:
             pass
 
-    # ToDo: Add more statuses
     #! ToDo: Should get data from statistics.md
-    statuses = {"empty": 0}
+    statuses = {
+        "empty": 0,
+        "Story available": 0,
+        "Audio available": 0,
+        "Video available": 0,
+        "Full Video available": 0,
+        "Used": 0,
+    }
 
     # Function to check if "info.json" exists in a folder
     def check_info_json(folder):
