@@ -1,3 +1,4 @@
+import os
 from .story_files import make_story_files
 from .voice_files import set_file_to_make_voice
 from .video_files.set_file_to_make_video import set_file_to_make_video
@@ -26,6 +27,9 @@ choices = {
     "Manual": manual,
     "Exit": None,
 }
+
+# Clear console
+os.system("cls")
 
 set_choice(
     "What's we gonna do today?",
