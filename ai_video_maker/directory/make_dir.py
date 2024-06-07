@@ -32,7 +32,7 @@ def make_dir():
         for i in range(folders_in_dir_last, end_of_range):
             folders_in_dir_last = folders_in_dir_last + 1
 
-            folder_name = f"story{folders_in_dir_last:04d}"
+            folder_name = f"story{folders_in_dir_last:04d} - Empty"
 
             path = os.path.join(dir_path, folder_name)
             os.makedirs(path)
