@@ -1,5 +1,4 @@
 import json
-from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 
 
 def list_of_subreddits():
