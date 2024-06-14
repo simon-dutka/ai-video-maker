@@ -19,6 +19,4 @@ def set_directory_to_change_status():
         choices[directory] = lambda dir=directory: change_status(dir)
 
     return set_choice("Set directory to change status", choices)
-
-
-set_directory_to_change_status()
+    # ToDo: Use returns answer as an argument and do change_statuses(answer)
