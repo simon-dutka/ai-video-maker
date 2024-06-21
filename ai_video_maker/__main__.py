@@ -11,7 +11,6 @@ from .one_click_video import one_click_video
 from .download_background_video import download_background_video
 from .choice import set_choice
 
-
 choices = {
     "One click video": one_click_video,
     "Make directory structure": make_dir,

@@ -1,3 +1,5 @@
+# Not finished 
+
 # Api secret keys
 .secret/*
 !.secret/.gitkeep

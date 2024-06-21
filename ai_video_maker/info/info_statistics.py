@@ -1,54 +1,25 @@
-import os
-import json
-from .create_info import create_info
-
-dir_path = "./stories"
-
-if not os.path.exists(dir_path):
-    os.makedirs(dir_path)
+from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
+from ..info.show_statuses_statistics import show_statuses_statistics
+from ..info.update_statuses_statistics import update_statuses_statistics
 
 
 def statuses_stats():
-    statistics_file = "./statistics.md"
+    class exit_status:
+        def __init__(self, is_exit):
+            self.is_exit = is_exit
 
-    # Create statistics.md if not exists
-    if not os.path.exists(statistics_file):
-        with open(statistics_file, "w") as f:
-            pass
+        def change_exit_status(self):
+            self.is_exit = True
 
-    #! ToDo: Should get data from statistics.md
-    statuses = {
-        "empty": 0,
-        "Story available": 0,
-        "Audio available": 0,
-        "Video available": 0,
-        "Full Video available": 0,
-        "Used": 0,
+    is_exit = exit_status(False)
+
+    choices = {
+        "Update statuses statistics": update_statuses_statistics,
+        "Show statuses stats": show_statuses_statistics,
+        "Exit": is_exit.change_exit_status,
     }
 
-    # Function to check if "info.json" exists in a folder
-    def check_info_json(folder):
-        info_json_path = os.path.join(folder, "info.json")
-        return os.path.exists(info_json_path)
+    while is_exit.is_exit == False:
+        choiceIndex = get_inquirer_choice("Statuses", list(choices.keys()))
 
-    # Go through the subfolders
-    for subfolder in os.listdir(dir_path):
-        folder_path = os.path.join(dir_path, subfolder)
-        if os.path.isdir(folder_path):
-            # Create info.json file if not exists
-            if check_info_json(folder_path) == False:
-                file_path = os.path.join(f"./stories/{subfolder}/info.json")
-                create_info(file_path, subfolder)
-
-            info_file = os.path.join(dir_path, subfolder, "info.json")
-
-            with open(info_file, "r") as f:
-                data = json.load(f)
-                status = data.get("status")
-
-                if status in statuses:
-                    statuses[status] += 1
-
-    print("Statistics")
-    for key in statuses:
-        print(f"{key}: {statuses[key]}")
+        choices[list(choices)[choiceIndex]]()
