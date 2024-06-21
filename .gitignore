@@ -1,3 +1,5 @@
+ai_video_maker/one_click_video
+
 # Api secret keys
 .secret/*
 !.secret/.gitkeep
