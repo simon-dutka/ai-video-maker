@@ -1,7 +1,8 @@
 from ai_video_maker.inquirer_files.get_inquirer_choice import get_inquirer_choice
 
-from .statuses_stats import statuses_stats
+from ..info.info_statistics import statuses_stats
 from .set_directory_to_change_status import set_directory_to_change_status
+from .change_status import change_status
 
 
 def statuses():
