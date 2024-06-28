@@ -1,6 +1,7 @@
 import os
 import re
 from ai_video_maker.directory import change_dir_name
+from ai_video_maker.statuses import change_status_available_files
 
 dir_path = "./stories"
 
@@ -37,5 +38,6 @@ def make_story_files(reddit):
                     stories_id.seek(0)
                     stories_id.truncate()
                     stories_id.writelines(lines[1:])
+            change_status_available_files(directory, "story file")
 
     change_dir_name.change_dir_name("Empty", "Check story", folders_in_dir, "stories/")
