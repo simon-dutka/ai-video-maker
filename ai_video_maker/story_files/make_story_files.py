@@ -10,12 +10,6 @@ if not os.path.exists(dir_path):
 
 
 def make_story_files(reddit):
-    folders_in_dir = [
-        folder
-        for folder in os.listdir(dir_path)
-        if os.path.isdir(os.path.join(dir_path, folder))
-    ]
-
     # Get Title and selfText by ID's & put into file texts
     for directory in os.listdir("./stories"):
         if os.path.isdir(f"stories/{directory}"):
