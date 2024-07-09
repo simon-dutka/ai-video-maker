@@ -18,15 +18,15 @@ def make_story_files(reddit):
 
     # Get Title and selfText by ID's & put into file texts
     for directory in os.listdir("./stories"):
-        if "Empty" in directory:
+        if os.path.isdir(f"stories/{directory}"):
             with open("stories_id/stories_id.txt", "r+") as stories_id:
                 first_line = stories_id.readline()
                 lines = stories_id.readlines()
 
                 with open("stories_id/used_stories_id.txt", "a") as used_stories_id:
                     used_stories_id.write(first_line)
+                file_name = int(re.sub("[a-z]|[A-Z]", "", directory))
 
-                file_name = int(re.sub("[a-z]|[A-Z]", "", directory).replace(" - ", ""))
                 with open(
                     f"stories/{directory}/story{file_name:04d}.txt", "wb"
                 ) as story_file:
@@ -39,5 +39,3 @@ def make_story_files(reddit):
                     stories_id.truncate()
                     stories_id.writelines(lines[1:])
             change_status_available_files(directory, "story file")
-
-    change_dir_name.change_dir_name("Empty", "Check story", folders_in_dir, "stories/")
