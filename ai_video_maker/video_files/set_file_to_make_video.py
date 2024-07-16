@@ -16,4 +16,7 @@ def set_file_to_make_video():
                     if "Ready to make video" in directory:
                         choices[directory] = lambda: make_video_files(directory)
 
-    set_choice(choices, "Set file to make video")
+    if (len(choices)) > 0:
+        return set_choice("Set file to make video", choices)
+    else:
+        print("No files to make video")
