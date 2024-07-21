@@ -1,6 +1,6 @@
 # Statistics
 
-### empty: 0
+### Empty: 0
 
 ### Story available: 0
 

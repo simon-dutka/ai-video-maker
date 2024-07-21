@@ -10,7 +10,7 @@ if not os.path.exists(dir_path):
 
 # Adding just name to a list
 # def set_background_to_make_video():
-#     files = {}  # Initialize an empty list to store all file names
+#     files = {}  # Initialize an Empty list to store all file names
 #     for directory in os.listdir("./background_videos"):
 #         directory_path = os.path.join("./background_videos", directory)
 #         files.extend(file for file in os.listdir(directory_path) if file != ".gitkeep")
@@ -19,7 +19,7 @@ if not os.path.exists(dir_path):
 
 
 def set_background_to_make_video():
-    files = {}  # Initialize an empty dictionary to store all file names
+    files = {}  # Initialize an Empty dictionary to store all file names
     for directory in os.listdir("./background_videos"):
         directory_path = os.path.join("./background_videos", directory)
         files.update(

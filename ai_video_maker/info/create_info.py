@@ -6,7 +6,7 @@ def create_info(
     directory_path,
     directory_name,
 ):
-    data = {"directory_name": directory_name, "status": "empty", "available-files": []}
+    data = {"directory_name": directory_name, "status": "Empty", "available-files": []}
 
     # Create the directory if it doesn't exist
     os.makedirs(os.path.dirname(directory_path), exist_ok=True)
