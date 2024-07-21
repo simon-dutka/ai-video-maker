@@ -13,7 +13,7 @@ def set_file_to_make_video():
                 data = json.load(file)
 
                 if isinstance(data, dict):
-                    if "Ready to make video" in directory:
+                    if data.get("status") == "Ready to make video":
                         choices[directory] = lambda: make_video_files(directory)
 
     if (len(choices)) > 0:
