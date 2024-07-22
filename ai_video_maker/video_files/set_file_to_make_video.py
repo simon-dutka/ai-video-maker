@@ -1,6 +1,6 @@
 import os
 import json
-from .make_video_files import make_video_files
+from .make_video_files import set_directory_to_choose_background
 from ai_video_maker.choice import set_choice
 
 
@@ -14,7 +14,9 @@ def set_file_to_make_video():
 
                 if isinstance(data, dict):
                     if data.get("status") == "Ready to make video":
-                        choices[directory] = lambda: make_video_files(directory)
+                        choices[directory] = lambda: set_directory_to_choose_background(
+                            directory
+                        )
 
     if (len(choices)) > 0:
         return set_choice("Set file to make video", choices)

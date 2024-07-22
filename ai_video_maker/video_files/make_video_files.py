@@ -2,50 +2,42 @@ import os, re
 from moviepy.editor import *
 from ai_video_maker.choice import set_choice
 
-
 dir_path = "./stories"
 
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
-# Adding just name to a list
-# def set_background_to_make_video():
-#     files = {}  # Initialize an Empty list to store all file names
-#     for directory in os.listdir("./background_videos"):
-#         directory_path = os.path.join("./background_videos", directory)
-#         files.extend(file for file in os.listdir(directory_path) if file != ".gitkeep")
 
-#     print(files)
+def set_directory_to_choose_background(audio_file):
+    directory_choices = {}
 
-
-def set_background_to_make_video():
-    files = {}  # Initialize an Empty dictionary to store all file names
     for directory in os.listdir("./background_videos"):
-        directory_path = os.path.join("./background_videos", directory)
-        files.update(
-            {file: "test" for file in os.listdir(directory_path) if file != ".gitkeep"}
+        directory_choices[directory] = (
+            lambda dir=directory: set_background_to_make_video(dir, audio_file)
         )
 
-    print(files)
+    return set_choice(
+        "Select the folder from which you want to choose a background",
+        directory_choices,
+    )
 
 
-# set_background_to_make_video()
+def set_background_to_make_video(dir, audio_file):
+    background_choices = {}
+    for directory in os.listdir(f"./background_videos/{dir}"):
+        if directory == ".gitkeep":
+            continue
+        else:
+            background_choices[directory] = lambda dir=directory: make_video_files(
+                dir, audio_file
+            )
+
+    return set_choice(
+        "Select a video to set as a background",
+        background_choices,
+    )
 
 
-def make_video_files(audio_file):
-    set_background_to_make_video()
-
-    audio = AudioFileClip(audio_file)
-    background = VideoFileClip(background_file)
-    # video = editor.set_audio(audio.audio)
-
-    background.audio = CompositeAudioClip([audio])
-
-    background.write_videofile("./new_filename.mp4")
-
-
-# make_video_files()
-# make_video_files(
-#     "./stories/story0001 - Ready to make video/story0001.mp3",
-#     "./background_videos/never_used/test02.mp4",
-# )
+# Execute after choose background video
+def make_video_files(dir, audio_file):
+    pass
