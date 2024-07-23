@@ -28,8 +28,10 @@ def set_background_to_make_video(dir, audio_file):
         if directory == ".gitkeep":
             continue
         else:
-            background_choices[directory] = lambda dir=directory: make_video_files(
-                dir, audio_file
+            background_choices[directory] = (
+                lambda dir=directory, audio_file=audio_file: make_video_files(
+                    dir, audio_file
+                )
             )
 
     return set_choice(
