@@ -14,8 +14,10 @@ def set_file_to_make_video():
 
                 if isinstance(data, dict):
                     if data.get("status") == "Ready to make video":
-                        choices[directory] = lambda: set_directory_to_choose_background(
-                            directory
+                        choices[directory] = (
+                            lambda dir=directory: set_directory_to_choose_background(
+                                dir
+                            )
                         )
 
     if (len(choices)) > 0:
