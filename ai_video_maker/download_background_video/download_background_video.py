@@ -1,16 +1,20 @@
-from pytube import YouTube
+import os
+from yt_dlp import YoutubeDL
 
 
 def download_background_video(url):
-    yt = YouTube(url).streams.get_highest_resolution()
-
     video_name = input("Enter the video name: ")
+    download_path = "./background_videos"
+
     try:
-        (
-            yt.download(
-                "background_videos/never_used",
-                filename=(video_name + ".mp4"),
-            ),
-        )
+        ydl_opts = {
+            "format": "mp4",
+            "outtmpl": "%(title)s.%(ext)s",
+            "outtmpl": os.path.join(download_path, f"{video_name}.%(ext)s"),
+        }
+
+        with YoutubeDL(ydl_opts) as ydl:
+            ydl.download([url])
+
     except:
         print("Error")
