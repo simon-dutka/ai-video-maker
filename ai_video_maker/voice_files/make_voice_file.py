@@ -18,7 +18,7 @@ folders_in_dir = [
 def make_voice_file(story_file_name):
     CHUNK_SIZE = 1024
 
-    voice_model_id = "dPfEIZvhnol9pjmS6M7F"
+    voice_model_id = "ErXwobaYiN019PkySvjV"
     url = "https://api.elevenlabs.io/v1/text-to-speech/" + voice_model_id
 
     headers = {
