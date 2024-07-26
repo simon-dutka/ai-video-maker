@@ -11,24 +11,11 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
 
-def set_directory_to_choose_background(audio_file):
-    directory_choices = {}
-
-    for directory in os.listdir("./background_videos"):
-        directory_choices[directory] = (
-            lambda dir=directory: set_background_to_make_video(dir, audio_file)
-        )
-
-    return set_choice(
-        "Select the folder from which you want to choose a background",
-        directory_choices,
-    )
-
-
-def set_background_to_make_video(dir, audio_file):
+def set_background_to_make_video(audio_file):
     background_choices = {}
-    for directory in os.listdir(f"./background_videos/{dir}"):
-        if directory == ".gitkeep":
+
+    for directory in os.listdir(f"./background_videos"):
+        if directory != ".mp4":
             continue
         else:
             background_choices[directory] = (
@@ -37,10 +24,13 @@ def set_background_to_make_video(dir, audio_file):
                 )
             )
 
-    return set_choice(
-        "Select a video to set as a background",
-        background_choices,
-    )
+    if len(background_choices) > 0:
+        return set_choice(
+            "Select a video to set as a background",
+            background_choices,
+        )
+    else:
+        print("No available backgrounds")
 
 
 def make_video_files(background_file, audio_file):
