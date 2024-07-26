@@ -26,7 +26,6 @@ def make_voice_file(story_file_name):
         "Content-Type": "application/json",
         "xi-api-key": keys["ELEVEN_LABS_API_KEY"],
     }
-    voice_file_name = re.sub(" - Ready to make audio", "", story_file_name)
 
     story_text = ""
 
