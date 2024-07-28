@@ -1,4 +1,6 @@
-import requests, json, os, re
+import requests
+import json
+import os
 
 with open(".secret/keys.json", "r") as f:
     keys = json.load(f)

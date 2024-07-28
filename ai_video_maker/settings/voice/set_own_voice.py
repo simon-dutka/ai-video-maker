@@ -1,4 +1,5 @@
-import inquirer, json
+import inquirer
+import json
 
 
 def set_own_voice():
