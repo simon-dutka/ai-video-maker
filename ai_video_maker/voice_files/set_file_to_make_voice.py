@@ -14,7 +14,7 @@ def set_file_to_make_voice():
 
                 if isinstance(data, dict):
                     if data.get("status") == "Ready to make audio":
-                        choices[directory] = lambda: make_voice_file(directory)
+                        choices[directory] = lambda dir=directory: make_voice_file(dir)
 
     if (len(choices)) > 0:
         return set_choice("Set file to make audio", choices)
