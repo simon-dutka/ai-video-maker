@@ -11,6 +11,16 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
 
+def choose_video_length():
+    while True:
+        try:
+            video_length = int(input("Choose video length in minutes: "))
+            print(f"Video length: {video_length} minutes")
+            break
+        except ValueError:
+            print("Invalid value. Enter a numeric value")
+
+
 def set_background_to_make_video(audio_file):
     background_choices = {}
 
