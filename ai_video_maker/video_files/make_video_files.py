@@ -12,13 +12,6 @@ if not os.path.exists(dir_path):
 
 
 def choose_video_length():
-    while True:
-        try:
-            video_length = int(input("Choose video length in minutes: "))
-            break
-        except ValueError:
-            print("Invalid value. Enter a numeric value")
-
     choices = [
         "Select story automatically based on length in minutes",
         "Manually select stories for the video",
@@ -35,6 +28,26 @@ def choose_video_length():
     )
 
     selected_index = choices.index(select_method["Select method"])
+
+    if selected_index == 0:
+        while True:
+            try:
+                video_length = int(input("Choose video length in minutes: "))
+                break
+            except ValueError:
+                print("Invalid value. Enter a numeric value")
+        auto_select_stories(video_length)
+    else:
+        manual_select_stories()
+
+
+def auto_select_stories(video_length):
+    pass
+
+
+def manual_select_stories():
+    pass
+
 
 def set_background_to_make_video(audio_file):
     background_choices = {}
