@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+from mutagen.mp3 import MP3
 
 with open(".secret/keys.json", "r") as f:
     keys = json.load(f)
@@ -45,3 +46,15 @@ def make_audio_file(story_file_name):
         for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
             if chunk:
                 f.write(chunk)
+
+    audio = MP3(f"stories/{story_file_name}/{story_file_name}.mp3")
+
+    info_file_path = f"stories/{story_file_name}/info.json"
+
+    with open(info_file_path, "r") as json_file:
+        json_info_data = json.load(json_file)
+
+        json_info_data["audio-length"] = round(audio.info.length / 60, 1)
+
+    with open(info_file_path, "w") as json_file:
+        json.dump(json_info_data, json_file, indent=4)
