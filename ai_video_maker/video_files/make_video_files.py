@@ -1,6 +1,6 @@
 import os
-import re
 import numpy as np
+import inquirer
 from moviepy.editor import *
 from ai_video_maker.choice import set_choice
 from moviepy.audio.AudioClip import AudioArrayClip
@@ -15,11 +15,26 @@ def choose_video_length():
     while True:
         try:
             video_length = int(input("Choose video length in minutes: "))
-            print(f"Video length: {video_length} minutes")
             break
         except ValueError:
             print("Invalid value. Enter a numeric value")
 
+    choices = [
+        "Select story automatically based on length in minutes",
+        "Manually select stories for the video",
+    ]
+
+    select_method = inquirer.prompt(
+        [
+            inquirer.List(
+                "Select method",
+                message="Choose a method to select the length of the video",
+                choices=choices,
+            ),
+        ]
+    )
+
+    selected_index = choices.index(select_method["Select method"])
 
 def set_background_to_make_video(audio_file):
     background_choices = {}
