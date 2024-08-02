@@ -1,4 +1,5 @@
 import os
+import json
 import numpy as np
 import inquirer
 from moviepy.editor import *
@@ -30,19 +31,32 @@ def choose_video_length():
     selected_index = choices.index(select_method["Select method"])
 
     if selected_index == 0:
-        while True:
-            try:
-                video_length = int(input("Choose video length in minutes: "))
-                break
-            except ValueError:
-                print("Invalid value. Enter a numeric value")
-        auto_select_stories(video_length)
+        auto_select_stories()
     else:
         manual_select_stories()
 
 
-def auto_select_stories(video_length):
-    pass
+def auto_select_stories():
+    audio_len = {}
+
+    while True:
+        try:
+            video_length = int(input("Choose video length in minutes: "))
+            break
+        except ValueError:
+            print("Invalid value. Enter a numeric value")
+
+    directory = "./stories"
+
+    for story_dir in os.listdir(directory):
+        story_dir_path = os.path.join(directory, story_dir)
+        if os.path.isdir(story_dir_path):
+            file_path = f"./stories/{story_dir}/info.json"
+
+            with open(file_path, "r", encoding="utf-8") as file:
+                data = json.load(file)
+                if "audio file" in data.get("available-files", []):
+                    audio_len[story_dir] = data["audio-length"]
 
 
 def manual_select_stories():
