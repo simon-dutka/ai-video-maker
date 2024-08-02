@@ -13,7 +13,7 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
 
-def choose_video_length():
+def choose_video_length(video_name):
     choices = [
         "Select story automatically based on length in minutes",
         "Manually select stories for the video",
@@ -32,12 +32,18 @@ def choose_video_length():
     selected_index = choices.index(select_method["Select method"])
 
     if selected_index == 0:
-        auto_select_stories()
+        auto_select_stories(video_name)
     else:
         manual_select_stories()
+def combine_audio(audio_len_list, video_name):
+    audio_clips = [AudioFileClip(audio_file) for audio_file in audio_len_list]
+
+    combined_audio = concatenate_audioclips(audio_clips)
+
+    combined_audio.write_audiofile(f"{video_name}.mp3")
 
 
-def auto_select_stories():
+def auto_select_stories(video_name):
     audio_len = {}
 
     while True:
@@ -57,7 +63,9 @@ def auto_select_stories():
             with open(file_path, "r", encoding="utf-8") as file:
                 data = json.load(file)
                 if "audio file" in data.get("available-files", []):
-                    audio_len[story_dir] = data["audio-length"]
+                    audio_len[f"./stories/{story_dir}/{story_dir}.mp3"] = data[
+                        "audio-length"
+                    ]
 
     def find_combinations(d, video_length):
         keys = list(d.keys())
@@ -77,6 +85,8 @@ def auto_select_stories():
     best_combination, avg_sum = find_combinations(audio_len, video_length)
 
 def manual_select_stories():
+    combine_audio(audio_len_list, video_name)
+
     pass
 
 
