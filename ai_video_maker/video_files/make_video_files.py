@@ -1,5 +1,6 @@
 import os
 import json
+import itertools
 import numpy as np
 import inquirer
 from moviepy.editor import *
@@ -58,6 +59,22 @@ def auto_select_stories():
                 if "audio file" in data.get("available-files", []):
                     audio_len[story_dir] = data["audio-length"]
 
+    def find_combinations(d, video_length):
+        keys = list(d.keys())
+        best_combination = None
+        best_difference = float("inf")
+        for r in range(1, len(keys) + 1):
+            for combination in itertools.combinations(keys, r):
+                current_sum = sum(d[key] for key in combination)
+                current_difference = abs(video_length - current_sum)
+                if current_difference < best_difference:
+                    best_combination = combination
+                    best_difference = current_difference
+                    if best_difference == 0:
+                        return best_combination, current_sum
+        return best_combination, sum(d[key] for key in best_combination)
+
+    best_combination, avg_sum = find_combinations(audio_len, video_length)
 
 def manual_select_stories():
     pass
