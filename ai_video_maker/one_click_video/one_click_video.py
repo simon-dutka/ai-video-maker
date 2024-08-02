@@ -1,6 +1,6 @@
 from ai_video_maker.story_files.make_story_files import make_story_files
 from ai_video_maker.api.get_reddit_api import get_reddit
-from ai_video_maker.voice_files.make_audio_file import make_audio_file
+from ai_video_maker.audio_files.make_audio_file import make_audio_file
 
 
 def one_click_video():
