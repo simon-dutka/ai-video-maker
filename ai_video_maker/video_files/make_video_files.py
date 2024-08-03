@@ -13,7 +13,18 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
 
-def choose_video_length(video_name):
+def choose_video_length():
+    while True:
+        video_name = input("Enter the video name: ")
+
+        video_path = f"videos/{video_name}"
+
+        if not os.path.exists(video_path):
+            os.makedirs(video_path)
+            break
+        else:
+            print(f"A video with the name {video_name} already exists.")
+
     choices = [
         "Select story automatically based on length in minutes",
         "Manually select stories for the video",
