@@ -1,8 +1,8 @@
 import os
 import json
 import itertools
-import numpy as np
 import inquirer
+import numpy as np
 from moviepy.editor import *
 from ai_video_maker.choice import set_choice
 from moviepy.audio.AudioClip import AudioArrayClip
