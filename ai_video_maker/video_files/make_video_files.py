@@ -13,6 +13,35 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
 
+def set_background(audio_length, audio_file):
+    background_choices = {}
+
+    with open("./background_videos/backgrounds_info.json", "r") as file:
+        data = json.load(file)
+
+        names = [
+            item
+            for item in data["available backgrounds"]
+            if item.get("background-length", 0) > audio_length
+        ]
+
+        for item in names:
+            background_path = item.get("name")
+            background_choices[background_path] = (
+                lambda dir=background_path, audio_file=audio_file: make_video_files(
+                    dir, audio_file
+                )
+            )
+
+    if len(background_choices) > 0:
+        return set_choice(
+            "Select a video to set as a background",
+            background_choices,
+        )
+    else:
+        print("No available backgrounds")
+
+
 def choose_video_length():
     while True:
         video_name = input("Enter the video name: ")
@@ -101,26 +130,7 @@ def manual_select_stories():
     pass
 
 
-def set_background_to_make_video(audio_file):
-    background_choices = {}
 
-    for directory in os.listdir(f"./background_videos"):
-        if directory != ".mp4":
-            continue
-        else:
-            background_choices[directory] = (
-                lambda dir=directory, audio_file=audio_file: make_video_files(
-                    dir, audio_file
-                )
-            )
-
-    if len(background_choices) > 0:
-        return set_choice(
-            "Select a video to set as a background",
-            background_choices,
-        )
-    else:
-        print("No available backgrounds")
 
 
 def make_video_files(background_file, audio_file):
