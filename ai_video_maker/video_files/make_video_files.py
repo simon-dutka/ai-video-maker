@@ -51,7 +51,7 @@ def combine_audio(audio_len_list, video_name):
 
     combined_audio = concatenate_audioclips(audio_clips)
 
-    combined_audio.write_audiofile(f"{video_name}.mp3")
+    combined_audio.write_audiofile(f"./videos/{video_name}/{video_name}.mp3")
 
 
 def auto_select_stories(video_name):
