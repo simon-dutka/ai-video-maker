@@ -20,17 +20,16 @@ def set_background(audio_length, audio_file):
         data = json.load(file)
 
         names = [
-            item
+            item.get("name")
             for item in data["available backgrounds"]
-            if item.get("background-length", 0) > audio_length
+            if float(item.get("background-length", 0)) > float(audio_length)
         ]
 
-        for item in names:
-            background_path = item.get("name")
+        for background_path in names:
+            print(background_path)
             background_choices[background_path] = (
-                lambda dir=background_path, audio_file=audio_file: make_video_files(
-                    dir, audio_file
-                )
+                lambda background_path=background_path,
+                audio_file=audio_file: make_video_files(background_path, audio_file)
             )
 
     if len(background_choices) > 0:
@@ -77,12 +76,14 @@ def choose_video_length():
         manual_select_stories(video_name)
 
 
-def combine_audio(audio_len_list, video_name):
+def combine_audio(audio_len_list, video_name, avg_sum):
     audio_clips = [AudioFileClip(audio_file) for audio_file in audio_len_list]
 
     combined_audio = concatenate_audioclips(audio_clips)
 
     combined_audio.write_audiofile(f"./videos/{video_name}/{video_name}.mp3")
+
+    set_background(avg_sum, video_name)
 
 
 def auto_select_stories(video_name):
@@ -127,7 +128,7 @@ def auto_select_stories(video_name):
 
     best_combination, avg_sum = find_combinations(audio_len, video_length)
 
-    combine_audio(best_combination, video_name)
+    combine_audio(best_combination, video_name, avg_sum)
 
 
 def manual_select_stories(video_name):
@@ -135,9 +136,9 @@ def manual_select_stories(video_name):
 
 
 def make_video_files(background_file, audio_file):
-    audio_dir = f"stories/{audio_file}/{audio_file}.mp3"
+    audio_dir = f"./videos/{audio_file}/{audio_file}.mp3"
     #! Update dir with variable
-    background_dir = f"background_videos/never_used/{background_file}"
+    background_dir = f"./background_videos/{background_file}.mp4"
 
     audio = AudioFileClip(audio_dir)
 
@@ -153,4 +154,4 @@ def make_video_files(background_file, audio_file):
 
     background.audio = CompositeAudioClip([final_audio])
 
-    background.write_videofile(f"./stories/{audio_file}/{audio_file}.mp4")
+    background.write_videofile(f"./videos/{audio_file}/{audio_file}.mp4")
