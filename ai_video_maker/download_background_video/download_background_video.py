@@ -14,6 +14,7 @@ def update_backgrounds_info(video_name):
         json_info_data = json.load(json_file)
 
     new_background_info = {
+        "name": video_name,
         video_name: "never used",
         "background-length": round(video.duration / 60, 1),
     }
