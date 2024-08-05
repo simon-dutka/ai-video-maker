@@ -74,7 +74,9 @@ def choose_video_length():
     if selected_index == 0:
         auto_select_stories(video_name)
     else:
-        manual_select_stories()
+        manual_select_stories(video_name)
+
+
 def combine_audio(audio_len_list, video_name):
     audio_clips = [AudioFileClip(audio_file) for audio_file in audio_len_list]
 
