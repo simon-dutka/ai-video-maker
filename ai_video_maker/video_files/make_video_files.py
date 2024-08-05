@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import itertools
 import inquirer
@@ -155,3 +156,4 @@ def make_video_files(background_file, audio_file):
     background.audio = CompositeAudioClip([final_audio])
 
     background.write_videofile(f"./videos/{audio_file}/{audio_file}.mp4")
+    sys.exit()
