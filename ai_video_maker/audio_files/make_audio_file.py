@@ -1,6 +1,7 @@
 import requests
 import json
 import os
+from ai_video_maker.statuses import change_status_available_files
 from mutagen.mp3 import MP3
 
 with open(".secret/keys.json", "r") as f:
@@ -58,3 +59,5 @@ def make_audio_file(story_file_name):
 
     with open(info_file_path, "w") as json_file:
         json.dump(json_info_data, json_file, indent=4)
+
+    change_status_available_files(story_file_name, "audio file")
