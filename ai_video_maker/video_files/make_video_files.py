@@ -122,6 +122,7 @@ def auto_select_stories(video_name):
                     best_difference = current_difference
                     if best_difference == 0:
                         return best_combination, current_sum
+
         return best_combination, sum(d[key] for key in best_combination)
 
     best_combination, avg_sum = find_combinations(audio_len, video_length)
