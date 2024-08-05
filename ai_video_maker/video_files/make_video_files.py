@@ -122,17 +122,13 @@ def auto_select_stories(video_name):
                         return best_combination, current_sum
         return best_combination, sum(d[key] for key in best_combination)
 
-    audio_len_list = list(audio_len.keys())
-
-def manual_select_stories():
-    combine_audio(audio_len_list, video_name)
-
-    pass
     best_combination, avg_sum = find_combinations(audio_len, video_length)
 
     combine_audio(best_combination, video_name)
 
 
+def manual_select_stories(video_name):
+    pass
 
 
 def make_video_files(background_file, audio_file):
