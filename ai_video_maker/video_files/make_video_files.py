@@ -128,7 +128,9 @@ def manual_select_stories():
     combine_audio(audio_len_list, video_name)
 
     pass
+    best_combination, avg_sum = find_combinations(audio_len, video_length)
 
+    combine_audio(best_combination, video_name)
 
 
 
