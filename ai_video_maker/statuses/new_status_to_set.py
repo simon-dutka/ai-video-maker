@@ -8,6 +8,6 @@ def new_status_to_set(dir):
     statuses = ["ready to make an audio"]
 
     for status in statuses:
-        choices[status] = lambda dir=status: change_status(dir)
+        choices[status] = lambda dir=dir: change_status(dir, status)
 
     return set_choice("Set new status", choices)
