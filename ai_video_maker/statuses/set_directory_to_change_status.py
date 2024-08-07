@@ -1,22 +1,28 @@
 import os
+import json
 from ai_video_maker.choice import set_choice
 from .change_status import change_status
 
 
 def set_directory_to_change_status():
-    dire_path = "./stories/"
+    dir_path = "./stories/"
+
+    choices = {}
 
     directories = [
-        f for f in os.listdir(dire_path) if os.path.isdir(os.path.join(dire_path, f))
+        f for f in os.listdir(dir_path) if os.path.isdir(os.path.join(dir_path, f))
     ]
 
     if not directories:
         print("No available directories")
+    else:
+        for directory in directories:
+            with open(f"./stories/{directory}/info.json", "r") as file:
+                data = json.load(file)
+                status = data.get("status")
 
-    choices = {}
-
-    for directory in directories:
-        choices[directory] = lambda dir=directory: change_status(dir)
+                choices[f"{directory} - {status}"] = (
+                    lambda dir=directory: change_status(dir)
+                )
 
     return set_choice("Set directory to change status", choices)
-    # ToDo: Use returns answer as an argument and do change_statuses(answer)
