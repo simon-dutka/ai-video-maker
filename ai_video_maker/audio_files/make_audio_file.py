@@ -46,7 +46,7 @@ def make_audio_file(story_file_name):
     with open(f"stories/{story_file_name}/{story_file_name}.mp3", "wb") as file:
         for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
             if chunk:
-                f.write(chunk)
+                file.write(chunk)
 
     audio = MP3(f"stories/{story_file_name}/{story_file_name}.mp3")
 

@@ -4,7 +4,7 @@ import json
 
 def get_reddit():
     with open(".secret/keys.json", "r") as file:
-        keys = json.load(f)
+        keys = json.load(file)
 
     reddit = praw.Reddit(
         client_id=keys["REDDIT_CLIENT_ID"],
