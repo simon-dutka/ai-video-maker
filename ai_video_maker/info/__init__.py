@@ -1,2 +1,1 @@
 from .create_info import create_info
-from .update_statuses_statistics import update_statuses_statistics
