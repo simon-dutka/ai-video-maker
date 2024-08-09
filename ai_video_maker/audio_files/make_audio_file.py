@@ -5,7 +5,7 @@ from ai_video_maker.statuses import change_status_available_files
 from mutagen.mp3 import MP3
 
 with open(".secret/keys.json", "r") as file:
-    keys = json.load(f)
+    keys = json.load(file)
 
 dir_path = "./stories"
 
