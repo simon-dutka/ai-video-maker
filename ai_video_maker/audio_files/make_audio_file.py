@@ -4,7 +4,7 @@ import os
 from ai_video_maker.statuses import change_status_available_files
 from mutagen.mp3 import MP3
 
-with open(".secret/keys.json", "r") as f:
+with open(".secret/keys.json", "r") as file:
     keys = json.load(f)
 
 dir_path = "./stories"
@@ -43,7 +43,7 @@ def make_audio_file(story_file_name):
     }
 
     response = requests.post(url, json=stories_id, headers=headers)
-    with open(f"stories/{story_file_name}/{story_file_name}.mp3", "wb") as f:
+    with open(f"stories/{story_file_name}/{story_file_name}.mp3", "wb") as file:
         for chunk in response.iter_content(chunk_size=CHUNK_SIZE):
             if chunk:
                 f.write(chunk)
