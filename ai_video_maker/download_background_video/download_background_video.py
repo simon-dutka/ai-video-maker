@@ -25,7 +25,8 @@ def update_backgrounds_info(video_name):
         json.dump(json_info_data, json_file, indent=4)
 
 
-def download_background_video(url):
+def download_background_video():
+    url = input("Enter the video URL: ")
     video_name = input("Enter the video name: ")
     download_path = "./background_videos"
 

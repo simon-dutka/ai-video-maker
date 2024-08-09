@@ -17,9 +17,7 @@ choices = {
     "Make story files": lambda: make_story_files(get_reddit()),
     "Make audio files": set_file_to_make_voice,
     "Make video files": choose_video_length,
-    "Download background": lambda: download_background_video(
-        input("Enter the video URL: ")
-    ),
+    "Download background": download_background_video,
     "Get posts ID's": lambda: get_id(get_subreddit()),
     "Statuses": statuses,
     "Settings": settings,
