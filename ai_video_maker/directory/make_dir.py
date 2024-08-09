@@ -20,9 +20,7 @@ def make_dir():
         folders_in_dir_last = 0
     else:
         folders_in_dir_last = folders_in_dir[len(folders_in_dir) - 1]
-        folders_in_dir_last = int(
-            re.sub("[a-z]|[A-Z]", "", folders_in_dir_last).replace(" - ", "")
-        )
+        folders_in_dir_last = int(re.sub("[a-z]|[A-Z]", "", folders_in_dir_last))
 
     with open("settings/settings.json", "r") as f:
         num_of_directories = json.load(f)["directoriesSettings"]["num_of_directories"]
