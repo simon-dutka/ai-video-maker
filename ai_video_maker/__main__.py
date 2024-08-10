@@ -29,6 +29,6 @@ choices = {
 os.system("cls")
 
 set_choice(
-    "What's we gonna do today?",
+    "What would you like to do?",
     choices,
 )
