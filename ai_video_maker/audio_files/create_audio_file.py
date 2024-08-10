@@ -19,7 +19,7 @@ folders_in_dir = [
 ]
 
 
-def make_audio_file(story_file_name):
+def create_audio_file(story_file_name):
     CHUNK_SIZE = 1024
 
     voice_model_id = "ErXwobaYiN019PkySvjV"
