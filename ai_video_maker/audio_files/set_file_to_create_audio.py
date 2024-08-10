@@ -13,7 +13,7 @@ def set_file_to_create_audio():
                 data = json.load(file)
 
                 if isinstance(data, dict):
-                    if data.get("status") == "Ready to make audio":
+                    if data.get("status") == "Ready to create audio":
                         choices[directory] = lambda dir=directory: create_audio_file(
                             dir
                         )
