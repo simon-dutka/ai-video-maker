@@ -1,10 +1,10 @@
 import os
 import json
-from .make_audio_file import make_audio_file
+from .create_audio_file import create_audio_file
 from ai_video_maker.choice import set_choice
 
 
-def set_file_to_make_voice():
+def set_file_to_create_audio():
     choices = {}
 
     for directory in os.listdir("./stories"):
@@ -13,8 +13,10 @@ def set_file_to_make_voice():
                 data = json.load(file)
 
                 if isinstance(data, dict):
-                    if data.get("status") == "Ready to make audio":
-                        choices[directory] = lambda dir=directory: make_audio_file(dir)
+                    if data.get("status") == "Ready to create audio":
+                        choices[directory] = lambda dir=directory: create_audio_file(
+                            dir
+                        )
 
     if (len(choices)) > 0:
         return set_choice("Set file to make audio", choices)

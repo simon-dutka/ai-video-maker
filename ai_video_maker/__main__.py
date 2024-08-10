@@ -1,6 +1,6 @@
 import os
 from .story_files import make_story_files
-from .audio_files import set_file_to_make_voice
+from .audio_files import set_file_to_create_audio
 from .make_video_files import choose_video_length
 from .api import get_reddit, get_id, get_subreddit
 from .directory import make_dir
@@ -15,7 +15,7 @@ choices = {
     "One click video": one_click_video,
     "Make directory structure": make_dir,
     "Make story files": lambda: make_story_files(get_reddit()),
-    "Make audio files": set_file_to_make_voice,
+    "Create audio files": set_file_to_create_audio,
     "Make video files": choose_video_length,
     "Download background": download_background_video,
     "Get posts ID's": lambda: get_id(get_subreddit()),
@@ -29,6 +29,6 @@ choices = {
 os.system("cls")
 
 set_choice(
-    "What's we gonna do today?",
+    "What would you like to do?",
     choices,
 )
