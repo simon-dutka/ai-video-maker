@@ -5,7 +5,7 @@ import json
 def show_statuses_stats():
     stats = {
         "Empty": 0,
-        "Ready to make an audio": 0,
+        "Ready to create audio": 0,
     }
 
     for directory in os.listdir("./stories"):
