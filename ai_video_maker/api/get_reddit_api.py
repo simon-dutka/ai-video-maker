@@ -16,6 +16,8 @@ def get_reddit():
 
 
 def get_subreddit():
+    reddit = get_reddit()
+
     with open("settings/settings.json", "r") as file:
         data = json.load(file)
         using_subreddit = data["subredditSettings"]["using-subreddit"]
