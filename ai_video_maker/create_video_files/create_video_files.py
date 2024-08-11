@@ -30,7 +30,7 @@ def set_background(audio_length, audio_file):
             print(background_path)
             background_choices[background_path] = (
                 lambda background_path=background_path,
-                audio_file=audio_file: make_video_files(background_path, audio_file)
+                audio_file=audio_file: create_video_files(background_path, audio_file)
             )
 
     if len(background_choices) > 0:
@@ -136,7 +136,7 @@ def manual_select_stories(video_name):
     pass
 
 
-def make_video_files(background_file, audio_file):
+def create_video_files(background_file, audio_file):
     audio_dir = f"./videos/{audio_file}/{audio_file}.mp3"
     #! Update dir with variable
     background_dir = f"./background_videos/{background_file}.mp4"
