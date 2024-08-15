@@ -4,14 +4,9 @@
 .secret/*
 !.secret/.gitkeep
 
-# Dir to story generated stories
-# stories/*
-!stories/.gitkeep
-
-
-# Dir to story reddit stories id's
-stories_id/*
-!stories_id/.gitkeep
+# Dir for reddit stories
+/stories/*
+!/stories/**/
 
 # Dir to story downloaded background videos
 background_videos/multiple_times_used/*
