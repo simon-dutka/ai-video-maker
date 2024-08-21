@@ -4,7 +4,7 @@ import json
 from ai_video_maker.info import create_info
 
 
-def make_dir():
+def create_dir():
     dir_path = "./stories"
 
     if not os.path.exists(dir_path):
