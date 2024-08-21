@@ -40,3 +40,5 @@ def create_dir():
             file_path = os.path.join(f"./stories/{folder_name}/info.json")
 
             create_info(file_path, folder_name)
+
+    print("Created a directory structure")
