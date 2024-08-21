@@ -3,7 +3,7 @@ from .story_files import make_story_files
 from .audio_files import set_file_to_create_audio
 from .create_video_files import choose_video_length
 from .api import get_reddit, get_id, get_subreddit
-from .directory import make_dir
+from .directory import create_dir
 from .settings import settings
 from .statuses import statuses
 from .manual import manual
@@ -13,7 +13,7 @@ from .choice import set_choice
 
 choices = {
     "One click video": one_click_video,
-    "Make directory structure": make_dir,
+    "Create a directory structure": create_dir,
     "Make story files": lambda: make_story_files(get_reddit()),
     "Create audio files": set_file_to_create_audio,
     "Create video files": choose_video_length,
