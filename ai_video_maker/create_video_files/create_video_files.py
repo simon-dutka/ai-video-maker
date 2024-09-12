@@ -133,7 +133,29 @@ def auto_select_stories(video_name):
 
 
 def manual_select_stories(video_name):
-    pass
+    root_directory = "./stories"
+
+    available_stories = []
+
+    for root, dirs, files in os.walk(root_directory):
+        for dir_name in dirs:
+            info_file_path = f"./stories/{dir_name}/info.json"
+
+            with open(info_file_path, "r") as file:
+                data = json.load(file)
+
+                if data.get("status") == "Ready to create a video":
+                    available_stories.append(dir_name)
+
+    questions = [
+        inquirer.Checkbox(
+            "select_stories",
+            message="Select audio files (use space then enter to confirm)",
+            choices=available_stories,
+        ),
+    ]
+
+    selected_stories = inquirer.prompt(questions)
 
 
 def create_video_files(background_file, audio_file):
