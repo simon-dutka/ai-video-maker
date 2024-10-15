@@ -14,10 +14,6 @@
 /stories_id/*
 !/stories_id/.gitkeep
 
-# Dir for settings
-/settings/*
-!/settings/default_settings.json
-
 */getStory.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
