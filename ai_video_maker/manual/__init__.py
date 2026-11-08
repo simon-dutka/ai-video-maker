@@ -1,1 +1,0 @@
-from .manual import manual

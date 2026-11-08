@@ -1,1 +1,0 @@
-python -m ai_video_maker
